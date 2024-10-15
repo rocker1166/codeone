@@ -1,0 +1,4393 @@
+File Path: .
+File Name: page.js
+
+"use client"
+// import AboutSectionOne from "@/components/About/AboutSectionOne";
+// import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import AboutUsJson from "../../../Data/AboutUs.json"
+import UserCard from "../../../components/About/UserCard";
+import Breadcrumb from "../../../components/Common/Breadcrumb";
+
+// ============== About Page ==============*
+const AboutPage = () => {
+
+  return (
+    <div className="mb-10">
+      <Breadcrumb
+        pageName="About : Meet This Awesome People"
+        description="At Last Minute Engineering, we are proud to have a team of dedicated and passionate individuals who bring their expertise and enthusiasm to everything we do. Get to know the minds behind our innovative content and supportive community:"
+      />
+
+      <p className="mb-12 px-4 font-medium text-black font-serif dark:text-white text-md md:text-lg text-justify">
+        LastMinuteEngineering is a dedicated platform designed to assist engineering students in excelling in their exams. We offer a comprehensive range of free resources, including continuous assessment (CA) questions, past year questions (PYQ), and valuable suggestions to enhance your study process. Our aim is to make your exam preparation as efficient and effective as possible, right up to the last minute.
+      </p>
+
+      <div className="flex flex-wrap justify-center text-center">
+        {AboutUsJson.map((data, index) => (
+          <div key={index} className="py-2 sm:mx-4">
+            <UserCard data={data} />
+          </div>
+        ))}
+      </div>
+
+      <div className=" sticky bottom-0 left-0 right-0 z-[-1]">
+        <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+      </div>
+      {/* <AboutSectionOne /> */}
+      {/* <AboutSectionTwo /> */}
+    </div>
+  );
+};
+
+export default AboutPage;
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+
+import Image from "next/image";
+import LinkCard from "../../../components/CollegeReview/LinkCard";
+
+
+export default function page() {
+
+  const CardData = [
+    {
+      "pic": "/images/collegereview/collegebatch.png",
+      "title": "College Batch",
+      "desc": "Write review on your college 250 words or more. (Total words in all sections)",
+      "link": "https://www.collegebatch.com/rferf65993f4bb7ed77"
+    },
+    {
+      "pic": "/images/collegereview/collegedunia.png",
+      "title": "College Dunia",
+      "desc": "CollegeDunia has been created to fulfill a vision of empowering students with knowledge so that they make a wiser decision while choosing their career and alma mater.",
+      "link": "https://collegedunia.com/write-review/temp?referral_code=1579DBD"
+    },
+    {
+      "pic": "/images/collegereview/shiksha.png",
+      "title": "Shiksha",
+      "desc": "Shiksha is a one-stop-solution making course and college selection easy for students looking to pursue undergraduate (UG) and postgraduate (PG) courses in India and abroad; also accessible to users on the move through the website's mobile site.",
+      "link": "https://www.shiksha.com/college-review-rating-form?utm_source=shiksha&utm_medium=referral&utm_campaign=3380627thankyou"
+    },
+  ]
+
+  return (<>
+
+    {/* <Breadcrumb
+        pageName="Welcome to the College Review and Earn Section"
+        description="Share your honest opinions about your college and earn rewards! Your reviews help future students make informed decisions, so make them count. Follow these simple guidelines to ensure your reviews are valuable and eligible for rewards:"
+      /> */}
+
+
+    <div className="container py-10">
+      <div className="flex flex-col items-center justify-center">
+        <div className="w-full lg:w-8/12">
+          <div>
+            <h2 className="mb-8 text-xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
+              Welcome to the College Review and Earn Section
+              free
+            </h2>
+
+            <div>
+              <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                Share your honest opinions about your college and earn rewards! Your reviews help future students make informed decisions, so make them count. Follow these simple guidelines to ensure your reviews are valuable and eligible for rewards:
+              </p>
+              <div className="mb-10 w-full overflow-hidden rounded">
+                <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
+                  <Image
+                    src="/images/collegereview/collegereviewbanner.jpg"
+                    alt="image"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+
+              <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
+                Dos:
+              </h3>
+              <ul className="mb-10 list-inside list-disc text-body-color">
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Be Honest: Share your genuine experiences, whether positive or negative.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Be Specific: Include details about academics, facilities, faculty, campus life, etc.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Be Constructive: Provide feedback that can help others understand the strengths and weaknesses of the college.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Be Clear: Write in simple language that is easy to understand for all readers.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Verify Your Identity: Submit your ID card, library card, or a result PDF (from any semester) for verification.
+                </li>
+              </ul>
+
+
+              <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
+                Don'ts:
+              </h3>
+              <ul className="mb-10 list-inside list-disc text-body-color">
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Plagiarize: Do not copy content from other websites or reviews.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Use Unoriginal Content: Your review should be unique and original.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Use Unusual Words: Stick to clear and straightforward language.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Include Personal Information: Avoid sharing personal details in your review.
+                </li>
+              </ul>
+
+              <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
+                How It Works:
+              </h3>
+              <ul className="mb-10 list-inside list-disc text-body-color">
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Submit Your Review: Fill out the review form honestly and thoroughly.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Verification: Upload your ID card, library card, or result PDF for verification purposes.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Earn Rewards: Once your review is verified, you will receive ₹225 credited to your account within one and a half days.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Include Personal Information: Avoid sharing personal details in your review.
+                </li>
+              </ul>
+
+              <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
+                Terms and Conditions:
+              </h3>
+              <ul className="mb-10 list-inside list-disc text-body-color">
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Reviews must be genuine and based on personal experiences.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Rewards are credited upon successful verification.
+                </li>
+                <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  Your personal information will be kept confidential.
+                </li>
+              </ul>
+              <p className="text-center text-base font-medium italic text-body-color">
+                Start sharing your college journey today and help others navigate theirs! Your insights matter.
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div className="pt-6 lg:w-8/12 flex justify-center items-center flex-col">
+
+          {CardData.map((data, index) => (
+            <LinkCard key={index} data={data} />
+          ))}
+
+        </div>
+      </div>
+    </div>
+    <div className=" sticky bottom-0 left-0 right-0 z-[-1]">
+      <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+    </div>
+
+  </>);
+};
+
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+// import Breadcrumb from "@/components/Common/Breadcrumb";
+import Contact from "../../../components/Contact";
+
+// ============= Contact Us =============*
+
+const ContactPage = () => {
+  return (<>
+
+    <Contact />
+
+    <div className=" sticky bottom-0 left-0 right-0 z-[-1]">
+      <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+    </div>
+  </>);
+};
+
+export default ContactPage;
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+import React from 'react';
+import CourseSec from '../../../components/Courses/CourseSec';
+
+
+export default function page() {
+  return (
+    <div className='mt-10'>
+
+      {/* <Breadcrumb
+      pageName="Courses"
+      description="Our teachers will ensure you are well-prepared for your semester exams, helping you achieve excellent marks and a high SGPA. Join us and become part of our family to excel in your academic journey"
+    /> */}
+      <CourseSec />
+
+      <div className=" sticky bottom-0 left-0 right-0 z-[-1]">
+        <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+      </div>
+    </div>
+  )
+}
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+import React from 'react';
+import { useAuth } from '../../../helper/Auth1';
+import NotFound from '../../../components/Common/NotFound';
+import AccountSetting from '../../../components/EditProfile/AccountSetting';
+
+// ============== Edit Profile ==============*
+export default function page() {
+    const { LoggedInUserData } = useAuth();
+
+
+    return (
+        <div className='mt-6'>
+
+            {LoggedInUserData ?
+                <div className="conatiner m-2 mt-10 sm:mx-10">
+                    <h1 className="mb-4 text-3xl font-extrabold text-purple-700 dark:text-purple-300 md:text-5xl lg:text-6xl">Edit Profile :</h1>
+
+                    {/* ======================== Accounts ======================== */}
+                    {LoggedInUserData &&
+                        <AccountSetting />
+                    }
+
+                </div>
+                :
+                <NotFound />
+            }
+
+        </div>
+    )
+}
+
+
+---
+
+File Path: .
+File Name: page.js
+
+import Link from "next/link";
+
+
+// ============== Error ==============*
+const ErrorPage = () => {
+  return (<>
+    <section className="relative z-10 pt-36 pb-16 md:pb-20 lg:pt-[180px] lg:pb-28">
+      <div className="container">
+        <div className="-mx-4 flex flex-wrap">
+          <div className="w-full px-4">
+            <div className="mx-auto max-w-[530px] text-center">
+              <div className="mx-auto mb-9 text-center">
+                <svg
+                  className="mx-auto w-full text-center"
+                  height="210"
+                  viewBox="0 0 474 210"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="0.5"
+                    d="M25 163.051H101.211V191H133.308V163.051H153V136.111H133.308V32H91.2871L25 136.577V163.051ZM101.831 136.111H58.8025V134.869L100.591 68.6445H101.831V136.111Z"
+                    stroke="url(#paint0_linear_116:1137)"
+                    strokeWidth="3"
+                  />
+                  <path
+                    opacity="0.5"
+                    d="M307 133.051H383.211V161H415.308V133.051H435V106.111H415.308V2H373.287L307 106.577V133.051ZM383.831 106.111H340.803V104.869L382.591 38.6445H383.831V106.111Z"
+                    stroke="url(#paint1_linear_116:1137)"
+                    strokeWidth="3"
+                  />
+                  <circle
+                    opacity="0.8"
+                    cx="227.5"
+                    cy="81.5"
+                    r="68.5"
+                    fill="#4A6CF7"
+                  />
+                  <mask
+                    id="mask0_116:1137"
+                    style={{ maskType: "alpha" }}
+                    maskUnits="userSpaceOnUse"
+                    x="159"
+                    y="13"
+                    width="137"
+                    height="137"
+                  >
+                    <circle
+                      opacity="0.8"
+                      cx="227.5"
+                      cy="81.5"
+                      r="68.5"
+                      fill="#4A6CF7"
+                    />
+                  </mask>
+                  <g mask="url(#mask0_116:1137)">
+                    <circle
+                      opacity="0.8"
+                      cx="227.5"
+                      cy="81.5"
+                      r="68.5"
+                      fill="url(#paint2_radial_116:1137)"
+                    />
+                    <g opacity="0.8" filter="url(#filter0_f_116:1137)">
+                      <circle
+                        cx="233.543"
+                        cy="49.2645"
+                        r="28.2059"
+                        fill="white"
+                      />
+                    </g>
+                  </g>
+                  <path
+                    d="M0 182H83.5V209H150.5V178H169.5V148.5C169.5 148.5 194 165 229.5 165C265 165 294 134.5 294 134.5V152H306.5H361V178H435V152H474"
+                    stroke="white"
+                    strokeOpacity="0.08"
+                    strokeWidth="2"
+                  />
+                  <defs>
+                    <filter
+                      id="filter0_f_116:1137"
+                      x="175.337"
+                      y="-8.94141"
+                      width="116.412"
+                      height="116.412"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feGaussianBlur
+                        stdDeviation="15"
+                        result="effect1_foregroundBlur_116:1137"
+                      />
+                    </filter>
+                    <linearGradient
+                      id="paint0_linear_116:1137"
+                      x1="25"
+                      y1="183"
+                      x2="126.155"
+                      y2="27.0837"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#4A6CF7" stopOpacity="0" />
+                      <stop offset="1" stopColor="#4A6CF7" />
+                    </linearGradient>
+                    <linearGradient
+                      id="paint1_linear_116:1137"
+                      x1="307"
+                      y1="153"
+                      x2="408.155"
+                      y2="-2.91631"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#4A6CF7" stopOpacity="0" />
+                      <stop offset="1" stopColor="#4A6CF7" />
+                    </linearGradient>
+                    <radialGradient
+                      id="paint2_radial_116:1137"
+                      cx="0"
+                      cy="0"
+                      r="1"
+                      gradientUnits="userSpaceOnUse"
+                      gradientTransform="translate(227.5 81.5) rotate(90) scale(73.5368)"
+                    >
+                      <stop stopOpacity="0.47" />
+                      <stop offset="1" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
+                </svg>
+              </div>
+              <h3 className="mb-4 text-3xl font-bold text-black dark:text-white sm:text-4xl">
+                Sorry, the page can’t be found
+              </h3>
+              <p className="mb-10 text-base font-medium leading-relaxed text-gray-700 sm:text-lg sm:leading-relaxed">
+                The page you were looking for appears to have been moved,
+                deleted or does not exist.
+              </p>
+              <Link
+                href="/"
+                className="rounded-md bg-blue-900 py-3 px-8 text-base font-bold text-white shadow-signUp duration-300 md:px-9 lg:px-8 xl:px-9"
+              >
+                Back to Homepage
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute left-0 bottom-0 z-[-1] hidden sm:block">
+        <svg
+          width="406"
+          height="286"
+          viewBox="0 0 406 286"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g opacity="0.5">
+            <rect
+              opacity="0.5"
+              x="56.25"
+              y="110.344"
+              width="116.719"
+              height="116.438"
+              stroke="url(#paint0_linear_116:1140)"
+            />
+            <rect
+              opacity="0.1"
+              x="56.25"
+              y="110.344"
+              width="116.719"
+              height="116.438"
+              fill="url(#paint1_linear_116:1140)"
+            />
+            <path
+              opacity="0.5"
+              d="M172.688 110.344L229.219 51V167.601L172.688 226.781V110.344Z"
+              stroke="url(#paint2_linear_116:1140)"
+            />
+            <path
+              opacity="0.1"
+              d="M172.688 110.344L229.219 51V167.601L172.688 226.781V110.344Z"
+              fill="url(#paint3_linear_116:1140)"
+            />
+            <path
+              opacity="0.5"
+              d="M0 169.619L56.25 110.344V226.85L0 286.125V169.619Z"
+              stroke="url(#paint4_linear_116:1140)"
+            />
+            <path
+              opacity="0.1"
+              d="M0 169.619L56.25 110.344V226.85L0 286.125V169.619Z"
+              fill="url(#paint5_linear_116:1140)"
+            />
+            <rect
+              opacity="0.5"
+              x="228.938"
+              y="51.2812"
+              width="119.25"
+              height="116.438"
+              stroke="url(#paint6_linear_116:1140)"
+            />
+            <rect
+              opacity="0.1"
+              x="228.938"
+              y="51.2812"
+              width="119.25"
+              height="116.438"
+              fill="url(#paint7_linear_116:1140)"
+            />
+            <path
+              opacity="0.5"
+              d="M347.906 51.2812L405 2V110.113L347.906 167.719V51.2812Z"
+              stroke="url(#paint8_linear_116:1140)"
+            />
+            <path
+              opacity="0.1"
+              d="M347.906 51.2812L405 2V110.113L347.906 167.719V51.2812Z"
+              fill="url(#paint9_linear_116:1140)"
+            />
+          </g>
+          <defs>
+            <linearGradient
+              id="paint0_linear_116:1140"
+              x1="49.0781"
+              y1="112.313"
+              x2="148.922"
+              y2="131.859"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint1_linear_116:1140"
+              x1="179.141"
+              y1="209.062"
+              x2="32.6026"
+              y2="145.47"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="paint2_linear_116:1140"
+              x1="170.016"
+              y1="125.25"
+              x2="217.542"
+              y2="125.507"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint3_linear_116:1140"
+              x1="233.578"
+              y1="113.156"
+              x2="146.509"
+              y2="143.95"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="paint4_linear_116:1140"
+              x1="-3.45633"
+              y1="113.316"
+              x2="46.311"
+              y2="116.426"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint5_linear_116:1140"
+              x1="69.8907"
+              y1="189.234"
+              x2="84.0124"
+              y2="249.947"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="paint6_linear_116:1140"
+              x1="218.953"
+              y1="157.453"
+              x2="330.261"
+              y2="148.369"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint7_linear_116:1140"
+              x1="348.187"
+              y1="46.6406"
+              x2="280.112"
+              y2="168.552"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="paint8_linear_116:1140"
+              x1="329"
+              y1="190"
+              x2="369.525"
+              y2="-29.8829"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint9_linear_116:1140"
+              x1="409"
+              y1="10"
+              x2="331.729"
+              y2="34.2741"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div className="absolute top-0 right-0 z-[-1] hidden sm:block">
+        <svg
+          width="406"
+          height="286"
+          viewBox="0 0 406 286"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g opacity="0.5">
+            <rect
+              opacity="0.5"
+              x="57.25"
+              y="108.344"
+              width="116.719"
+              height="116.438"
+              stroke="url(#paint0_linear_116:1151)"
+            />
+            <rect
+              opacity="0.1"
+              x="57.25"
+              y="108.344"
+              width="116.719"
+              height="116.438"
+              fill="url(#paint1_linear_116:1151)"
+            />
+            <path
+              opacity="0.5"
+              d="M173.688 108.344L230.219 49V165.601L173.688 224.781V108.344Z"
+              stroke="url(#paint2_linear_116:1151)"
+            />
+            <path
+              opacity="0.1"
+              d="M173.688 108.344L230.219 49V165.601L173.688 224.781V108.344Z"
+              fill="url(#paint3_linear_116:1151)"
+            />
+            <path
+              opacity="0.5"
+              d="M1 167.619L57.25 108.344V224.85L1 284.125V167.619Z"
+              stroke="url(#paint4_linear_116:1151)"
+            />
+            <path
+              opacity="0.1"
+              d="M1 167.619L57.25 108.344V224.85L1 284.125V167.619Z"
+              fill="url(#paint5_linear_116:1151)"
+            />
+            <rect
+              opacity="0.5"
+              x="229.938"
+              y="49.2812"
+              width="119.25"
+              height="116.438"
+              stroke="url(#paint6_linear_116:1151)"
+            />
+            <rect
+              opacity="0.1"
+              x="229.938"
+              y="49.2812"
+              width="119.25"
+              height="116.438"
+              fill="url(#paint7_linear_116:1151)"
+            />
+            <path
+              opacity="0.5"
+              d="M348.906 49.2812L406 0V108.113L348.906 165.719V49.2812Z"
+              stroke="url(#paint8_linear_116:1151)"
+            />
+            <path
+              opacity="0.1"
+              d="M348.906 49.2812L406 0V108.113L348.906 165.719V49.2812Z"
+              fill="url(#paint9_linear_116:1151)"
+            />
+          </g>
+          <defs>
+            <linearGradient
+              id="paint0_linear_116:1151"
+              x1="50.0781"
+              y1="110.313"
+              x2="149.922"
+              y2="129.859"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint1_linear_116:1151"
+              x1="180.141"
+              y1="207.062"
+              x2="33.6026"
+              y2="143.47"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="paint2_linear_116:1151"
+              x1="171.016"
+              y1="123.25"
+              x2="218.542"
+              y2="123.507"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint3_linear_116:1151"
+              x1="234.578"
+              y1="111.156"
+              x2="147.509"
+              y2="141.95"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="paint4_linear_116:1151"
+              x1="85.5"
+              y1="71.5"
+              x2="100.174"
+              y2="270.716"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint5_linear_116:1151"
+              x1="70.8907"
+              y1="187.234"
+              x2="85.0124"
+              y2="247.947"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="paint6_linear_116:1151"
+              x1="219.953"
+              y1="155.453"
+              x2="331.261"
+              y2="146.369"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint7_linear_116:1151"
+              x1="349.187"
+              y1="44.6406"
+              x2="281.112"
+              y2="166.552"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="paint8_linear_116:1151"
+              x1="394.75"
+              y1="64.3284"
+              x2="409.531"
+              y2="110.901"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" stopOpacity="0" />
+              <stop offset="1" stopColor="#4A6CF7" />
+            </linearGradient>
+            <linearGradient
+              id="paint9_linear_116:1151"
+              x1="410"
+              y1="8.00001"
+              x2="332.729"
+              y2="32.2741"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4A6CF7" />
+              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+  </>);
+};
+
+export default ErrorPage;
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+import React, { useEffect, useState } from 'react';
+import { useAuth } from '../../../helper/Auth1';
+import { useRouter } from 'next/navigation';
+import Breadcrumb from '../../../components/Common/Breadcrumb';
+import OptionCard from '../../../components/Common/OptionCard';
+import { FetchGFolderFunc } from '../../../helper/Others/FetchGFolderFunc';
+import UsersPageSkeleton from '../../../components/Skeleton/UsersPageSkeleton';
+
+
+// ===================== Find =====================*
+export default function page() {
+  const router = useRouter();
+  const [Options, setOptions] = useState([]);
+  const { LoggedInUserData, FirstLoad } = useAuth();
+  const [LoaderVisi, setLoaderVisi] = useState(true);
+
+
+  const GetFolderData = async () => {
+    setLoaderVisi(true);
+    try {
+      // Root drive folder ID
+      const data = await FetchGFolderFunc("1emjALkEUwYSRoCn3bo8DVcH_e69RL49v");
+      // console.log(data)
+      setOptions(data.children);
+    } catch (error) {
+      console.error(error);
+    }
+    setLoaderVisi(false);
+  }
+
+
+  useEffect(() => {
+    GetFolderData();
+  }, [FirstLoad, LoggedInUserData])
+
+
+  return (
+    <div className="min-h-screen mb-24">
+      {/* {LoggedInUserData ? <> */}
+      <Breadcrumb
+        pageName="Select Department"
+        description="Selecting the appropriate department will ensure you receive the most relevant and efficient help."
+      />
+
+      {LoaderVisi ? <UsersPageSkeleton /> : <>
+        {Options.length != 0 &&
+          <div className='flex justify-center items-center flex-row flex-wrap w-full p-1'>
+            {Options.map((data, index) => (
+              <OptionCard key={index} data={data} />
+            ))}
+          </div>
+        }
+      </>}
+
+      <div className=" sticky bottom-0 left-0 right-0 z-[-1]">
+        <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+      </div>
+      {/* </>
+        :
+        <NotFound />
+      } */}
+    </div>
+  )
+}
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+import React, { useEffect, useState } from 'react'
+import { useAuth } from '../../../../helper/Auth1';
+import { useRouter } from 'next/navigation';
+import NoFile from '../../../../components/Common/NoPost';
+import OptionCard from '../../../../components/Common/OptionCard';
+import { FetchGFolderFunc } from '../../../../helper/Others/FetchGFolderFunc';
+import UsersPageSkeleton from '../../../../components/Skeleton/UsersPageSkeleton';
+import ShareBtn from '../../../../components/Common/ShareBtn';
+
+
+// =========================== Page ===========================*
+export default function page({ params }) {
+  const { key } = params;
+  const router = useRouter();
+  const { LoggedInUserData, FirstLoad } = useAuth();
+  const [Options, setOptions] = useState([])
+  const [PageTitle, setPageTitle] = useState("")
+  const [PageDesc, setPageDesc] = useState("")
+  const [LoaderVisi, setLoaderVisi] = useState(true);
+
+
+  const GetFolderData = async () => {
+    setLoaderVisi(true);
+    try {
+      const data = await FetchGFolderFunc(key);
+      // console.log(data)
+      setOptions(data.children);
+    } catch (error) {
+      console.error(error);
+    }
+    setLoaderVisi(false);
+  }
+
+
+  useEffect(() => {
+    GetFolderData();
+  }, [FirstLoad, LoggedInUserData])
+
+
+  return (
+    <div className="min-h-screen my-24">
+
+      {/* {LoggedInUserData ? <> */}
+      {/* <Breadcrumb
+        pageName={PageTitle}
+        description={PageDesc}
+      /> */}
+
+
+      <div className='w-fit mx-auto font-bold text-lg text-black dark:text-white'>
+        Share :
+        <ShareBtn ButtonclassName="text-white order-3 bg-gray-800 hover:bg-gray-900 focus:outline-none font-medium rounded-lg text-md px-5 py-2.5 me-2 mb-2 mx-2  dark:bg-gray-800 dark:hover:bg-gray-700" icon="true" />
+      </div>
+
+      {LoaderVisi ? <UsersPageSkeleton /> : <>
+        {Options.length != 0 ?
+          <div className='flex justify-center items-center flex-row flex-wrap w-full p-1'>
+            {Options.map((data, index) => (
+              <OptionCard key={index} data={data} />
+            ))}
+          </div>
+          :
+          <NoFile />
+        }
+      </>}
+
+
+      <div className=" sticky bottom-0 left-0 right-0 z-[-1]">
+        <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+      </div>
+
+      {/* </>
+        :
+        <NotFound />
+      } */}
+
+    </div>
+  )
+}
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+// ================== Imports ==================
+import { useEffect, useState } from "react";
+import { useAuth } from "../../../helper/Auth1";
+
+import depDetailsJson from "../../../Data/depDetails.json"
+import SelectOption from "../../../components/Common/SelectOption";
+import GPAOptions from "../../../components/GPACalculator/GPAOptions";
+import SGPASec from "../../../components/GPACalculator/SGPASec";
+import YGPATable from "../../../components/GPACalculator/YGPATable";
+import CGPATable from "../../../components/GPACalculator/CGPATable";
+import SectionTitle from "../../../components/Common/SectionTitle";
+
+
+// ==================== Page ====================*
+export default function GPACalculatorPage() {
+  const { LoggedInUserData, FirstLoad } = useAuth();
+
+  const [DepartmentOptions, setDepartmentOptions] = useState([]);
+  const [SelectedDep, setSelectedDep] = useState("");
+
+  const [GPAtype, setGPAtype] = useState("");
+
+
+  useEffect(() => {
+    const departments = Object.keys(depDetailsJson);
+    const data = [];
+    departments.forEach(dep => {
+      data.push({
+        "name": dep,
+        "key": dep
+      });
+    });
+    setDepartmentOptions(data);
+  }, [])
+
+
+  const handleDepSelect = (key) => {
+    setSelectedDep(key);
+  }
+
+  return (
+    <div className="relative min-h-fit my-12">
+
+      <SectionTitle
+        title="GPA CALCULATOR"
+        paragraph="MAKAUT GPA CALCULATOR"
+        center
+        mb="20px"
+      />
+
+      <GPAOptions setGPAtype={setGPAtype} GPAtype={GPAtype} />
+
+      <SelectOption text={"Department"} options={DepartmentOptions} onSelect={handleDepSelect} />
+
+
+      {SelectedDep != "" && GPAtype == "SGPA" &&
+        <SGPASec SelectedDep={SelectedDep} />
+      }
+
+      {GPAtype == "YGPA" &&
+        <YGPATable />
+      }
+
+      {GPAtype == "CGPA" &&
+        <CGPATable />
+      }
+
+
+      <div className="absolute bottom-0 left-0 right-0 z-[-1]">
+        <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+      </div>
+
+    </div>
+  )
+};
+
+
+
+---
+
+File Path: .
+File Name: layout.js
+
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
+
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import ScrollToTop from "../../components/ScrollToTop";
+import { AuthUserProvider } from "../../helper/Auth1";
+import Background from "../../components/Common/Background";
+// import { BackgroundBeamsDemo } from "@/components/Common/BackgroundBeamsDemo";
+
+const inter = Inter({ subsets: ["latin"] });
+
+// ============================= Meta Data =============================
+export const metadata = {
+  manifest: "/manifest.json",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),
+  title: 'Last Minute Engineering',
+  description: 'Join Last Minute Engineering today and take control of your engineering education, no matter how tight the schedule.',
+  generator: 'Next.js',
+  applicationName: 'Last Minute Engineering',
+  referrer: 'origin-when-cross-origin',
+  keywords: [
+    'Last Minute Engineering',
+    'lastminuteengineering',
+    'lme', 'engineers',
+    'Last', 'Minute', 'Engineering',
+    'tuitions', 'momente', 'lastminuteengineers',
+    'lastmomenttuitions', 'lastmomentengineering',
+    'last', 'minute', 'engineering',
+    'soumojit', 'shome', 'soumojitshome', 'Next.js'
+  ],
+
+  authors: [{ name: 'Soumojit Shome' }, { name: 'Soumojit Shome', url: 'https://soumojitshome.vercel.app' }],
+  creator: 'Soumojit Shome',
+  publisher: 'Soumojit Shome',
+
+  icons: {
+    icon: '/images/logo/mainlogo2.jpg',
+    shortcut: '/images/logo/mainlogo2.jpg',
+    apple: '/images/logo/mainlogo2.jpg',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/images/logo/mainlogo2.jpg',
+    },
+  },
+
+  openGraph: {
+    title: 'Last Minute Engineering',
+    description: 'Join Last Minute Engineering today and take control of your engineering education, no matter how tight the schedule.',
+    url: '/images/logo/mainlogo2.jpg',
+    siteName: 'Last Minute Engineering',
+    images: [
+      {
+        url: '/images/logo/mainlogo2.jpg', // Must be an absolute URL
+        width: 800,
+        height: 600,
+      },
+      {
+        url: '/images/logo/mainlogo2.jpg', // Must be an absolute URL
+        width: 1800,
+        height: 1600,
+        alt: 'Last Minute Engineering',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+}
+
+// ============================= Root Layout =============================
+export default function RootLayout({ children, }) {
+  return (
+    
+
+     <>
+        <AuthUserProvider>
+      
+            <Header />
+            <Background />
+
+          
+
+            {children}
+            
+            <Footer />
+            <ScrollToTop />
+      
+        </AuthUserProvider >
+        <Analytics />
+        </>  
+  );
+}
+
+
+
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+import React from 'react'
+import socialLinks from '../../../Data/socialLinks.json'
+import SectionTitle from '../../../components/Common/SectionTitle'
+
+export default function page() {
+
+
+  return (<>
+    <div className='w-full p-2 py-10'>
+
+      <SectionTitle
+        title="Links"
+        paragraph=""
+        center
+        mb="20px"
+      />
+
+
+      <div className='mt-4 mb-10 p-2 sm:w-[80vw] mx-auto gap-4 flex justify-center items-center flex-col'>
+
+        {socialLinks.map((data, index) => (
+          <a href={data.link} key={index} target="_blank"
+            className="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-md py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none block w-full">
+            {data.name} →
+          </a>
+        ))}
+
+      </div>
+    </div>
+    <div className=" sticky bottom-0 left-0 right-0 z-[-1]">
+      <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+    </div>
+  </>)
+}
+
+
+---
+
+File Path: .
+File Name: page.js
+
+'use client'
+
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../../components/ui/select"
+import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card"
+import { Button } from "../../../components/ui/button"
+import Link from 'next/link'
+import { MainDataSet } from '../../../Data/MainDataSet'
+
+function MaterialSearch() {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  
+  const [stream, setStream] = useState(searchParams.get('stream') || '')
+  const [semester, setSemester] = useState(searchParams.get('semester') || '')
+  const [materialType, setMaterialType] = useState(searchParams.get('type') || 'all')
+
+  const [filteredMaterials, setFilteredMaterials] = useState([])
+
+  useEffect(() => {
+    const filtered = MainDataSet
+      .filter(dept => dept.key === stream)
+      .flatMap(dept => 
+        dept.children
+          .filter(sem => !semester || sem.key === semester)
+          .flatMap(sem => 
+            materialType === 'all' ? sem.children : sem.children.filter(material => material.key === materialType)
+          )
+      )
+    setFilteredMaterials(filtered)
+  }, [stream, semester, materialType])
+
+  const updateSearchParams = (key, value) => {
+    const current = new URLSearchParams(Array.from(searchParams.entries()))
+    if (!value || (key === 'type' && value === 'all')) {
+      current.delete(key)
+    } else {
+      current.set(key, value)
+    }
+    const search = current.toString()
+    const query = search ? `?${search}` : ""
+    router.push(`${pathname}${query}`)
+  }
+
+  const isFiltered = stream && (semester || materialType !== 'all')
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Study Material Search</h1>
+       
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+        <Select value={stream} onValueChange={(value) => { setStream(value); updateSearchParams('stream', value) }}>
+          <SelectTrigger>
+            <SelectValue placeholder="Select Stream" />
+          </SelectTrigger>
+          <SelectContent>
+            {MainDataSet.map(dept => (
+              <SelectItem key={dept.key} value={dept.key}>{dept.name}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select value={semester} onValueChange={(value) => { setSemester(value); updateSearchParams('semester', value) }}>
+          <SelectTrigger>
+            <SelectValue placeholder="Select Semester" />
+          </SelectTrigger>
+          <SelectContent>
+            {stream && MainDataSet.find(dept => dept.key === stream)?.children.map(sem => (
+              <SelectItem key={sem.key} value={sem.key}>{sem.name}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select value={materialType} onValueChange={(value) => { setMaterialType(value); updateSearchParams('type', value) }}>
+          <SelectTrigger>
+            <SelectValue placeholder="Select Material Type" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Materials</SelectItem>
+            {stream && MainDataSet.find(dept => dept.key === stream)?.children[0].children.map(material => (
+              <SelectItem key={material.key} value={material.key}>{material.name}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      {!isFiltered ? (
+        <div className="text-center p-8  backdrop-blur-lg rounded-lg">
+          <p className="text-lg font-semibold">Please select a stream and either a semester or specific material type to view study materials.</p>
+          <p className="text-sm text-gray-600 mt-2">You can further refine your search by selecting all three filters.</p>
+        </div>
+      ) : filteredMaterials.length === 0 ? (
+        <div className="text-center p-8  backdrop-blur-lg rounded-lg">
+          <p className="text-lg font-semibold">No materials found for the selected filters.</p>
+          <p className="text-sm text-gray-600 mt-2">Try adjusting your selection criteria.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {filteredMaterials.map((material, index) => (
+            <Card key={`${material.key}-${index}`}>
+              <CardHeader>
+                <CardTitle>{material.name}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {material.link ? (
+                  <Button className="w-full" onClick={() => window.open(material.link, '_blank')}>
+                    View Material
+                  </Button>
+                ) : material.type === 'folder' && material.id ? (
+                  <Link href={`/find/${material.id}`} passHref>
+                    <Button className="w-full">View Folder</Button>
+                  </Link>
+                ) : (
+                  <Button className="w-full" disabled>No Link Available</Button>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default function MaterialPage() {
+  return (
+    // Wrap with Suspense to handle async client-side rendering properly
+    <Suspense fallback={<div>Loading...</div>}>
+      <MaterialSearch />
+    </Suspense>
+  )
+}
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+import React from 'react';
+import NoticeJson from "../../../Data/Notice.json";
+import OptionCard from '../../../components/Common/OptionCard';
+import SectionTitle from '../../../components/Common/SectionTitle';
+
+export default function Noticepage({ HScroll = false }) {
+  return (
+    <div className='min-h-fit my-10'>
+      <SectionTitle
+        title="Latest Announcement"
+        paragraph="MAKAUT Latest Announcement"
+        center
+        mb="10px"
+      />
+
+      <div className={`flex ${HScroll ? "flex-row overflow-x-auto" : "justify-center"} w-full py-4`}>
+        <div className="flex flex-wrap justify-center gap-4 max-w-screen-lg mx-auto">
+          {NoticeJson.map((data, index) => (
+            <div key={index} className="py-2 flex justify-center">
+              <OptionCard data={data} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+// ================== Imports ==================
+import { useEffect, useState } from "react";
+import { useAuth } from "../../../../helper/Auth1";
+import ErrorPage from "../../error/page";
+import { useRouter } from 'next/navigation';
+import Breadcrumb from "../../../../components/Common/Breadcrumb";
+import OptionCard from "../../../../components/Common/OptionCard";
+import SelectOption from "../../../../components/Common/SelectOption";
+
+const specificKeys = ["syllabus", "organizers", "pyqs", "books", "suggestions", "CA-Questions"];
+
+
+// =========== Page ===========*
+export default function page({ params }) {
+  const { querykey } = params;
+  const { LoggedInUserData, FirstLoad } = useAuth();
+  const router = useRouter();
+  const [Options, setOptions] = useState([]);
+
+
+
+  // useEffect(() => {
+  //   if (!LoggedInUserData && !FirstLoad) {
+  //     router.push("/signin");
+  //   }
+  // }, [FirstLoad, LoggedInUserData])
+
+
+
+  if (!specificKeys.includes(querykey)) {
+    return <ErrorPage />
+  }
+
+  function getAllSemdata(departmentKey) {
+    const department = MainDataJson.find(dept => dept.key == departmentKey);
+    if (!department) {
+      return `Department with key ${departmentKey} not found.`;
+    }
+
+    const data = [];
+    // const queryData = department.children.find(ch => ch.key == querykey);
+
+    department.children.forEach(sem => {
+      const temp = sem.children.find(ch => ch.key == querykey.toLowerCase())
+      data.push({
+        "name": `${temp.name} : ${sem.name}`,
+        "description": department.name,
+        "id": temp.id,
+        "link": temp.link,
+        "type": temp.type
+      });
+    });
+
+    return data;
+  }
+
+  const handleSelect = (value) => {
+    const data = getAllSemdata(value);
+    setOptions(data);
+  }
+
+
+  return (
+    <div className="min-h-screen mb-24">
+
+      {/* {LoggedInUserData ? <> */}
+      <Breadcrumb
+        pageName={querykey.charAt(0).toUpperCase() + querykey.slice(1)}
+        description="Download and utilize detailed study guides, lecture notes, text books, and practice problems to reinforce your learning."
+      />
+
+      <SelectOption text={"Department"} options={MainDataJson} onSelect={handleSelect} />
+
+      {Options.length != 0 &&
+        <div className='flex justify-center items-center flex-row flex-wrap w-full p-1'>
+          {Options.map((data, index) => (
+            <OptionCard key={index} data={data} />
+
+          ))}
+        </div>
+      }
+
+      <div className=" sticky bottom-0 left-0 right-0 z-[-1]">
+        <img src="/images/video/shape.svg" alt="shape" className="w-full" />
+      </div>
+
+      {/* </>
+        :
+        <NotFound />
+      } */}
+
+    </div>
+  )
+};
+
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+import { useEffect } from "react";
+import ScrollUp from "../../components/Common/ScrollUp";
+import Contact from "../../components/Contact";
+import Features from "../../components/Features";
+import Hero from "../../components/Hero";
+import Video from "../../components/Video";
+import { useAuth } from "../../helper/Auth1";
+import { useRouter } from 'next/navigation';
+import { TextRevealDemo } from "../../components/Common/TextRevealDemo";
+import { AnimatedBeamDemo } from "../../components/Common/AnimatedBeamDemo";
+import SubscribeSec from "../../components/Common/Subscribe";
+import VisitorCountSec from "../../components/Common/VisitorCount";
+import CourseSec from "../../components/Courses/CourseSec";
+import GPACalculatorPage from "./gpa/page";
+import Noticepage from "./notice/page";
+import WPIconBtn from "../../components/Common/WPIconBtn";
+
+
+export default function Home() {
+  const router = useRouter();
+  const { LoggedInUserData, FirstLoad } = useAuth();
+
+  // useEffect(() => {
+  //   if (!LoggedInUserData && !FirstLoad) {
+  //     router.push("/signin");
+  //   }
+  // }, [FirstLoad, LoggedInUserData])
+
+  return (
+    <>
+      <ScrollUp />
+      <WPIconBtn />
+      <Hero />
+      <Features />
+      <Noticepage HScroll={true} />
+      <VisitorCountSec />
+
+      <AnimatedBeamDemo />
+      <TextRevealDemo />
+      <Video />
+      <CourseSec />
+      <GPACalculatorPage />
+
+      {/* <Brands /> */}
+      {/* <AboutSectionOne /> */}
+      {/* <AboutSectionTwo /> */}
+      {/* <Testimonials /> */}
+      {/* <Pricing /> */}
+      {/* <Blog /> */}
+      {/* <CardWithTab / > */}
+
+      <SubscribeSec />
+      <Contact />
+    </>
+  );
+}
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+// ======================== Imports ========================
+import React from "react";
+import Link from "next/link";
+import { useAuth } from "../../../helper/Auth1";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import 'react-toastify/dist/ReactToastify.css';
+import { LogInFunction } from "../../../helper/Auth/login";
+import { ToastContainer, toast } from 'react-toastify';
+import { OTPSendFunction } from "../../../helper/Mail/OTPSend";
+import { ResetPassword } from "../../../helper/Auth/ResetPassword";
+import { generateRandomNumber } from "../../../helper/Others/GenerateRandomNumber";
+import { Get_Current_Time_String } from "../../../helper/Others/Get_Current_Time_String";
+import ColorRingLoader from "../../../components/Common/ColorRingLoader";
+import { signInWithGoogleFunc } from "../../../helper/Auth/SignInWithGoogleFunc";
+import UserProfileSkeleton from "../../../components/Skeleton/UserProfileSkeleton";
+
+
+// ==================== SignIn Page ====================*
+const SigninPage = () => {
+  const { LoggedInUserData, setLoggedInUserData } = useAuth();
+
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [InputOTP, setInputOTP] = useState("");
+  const [GenOTP, setGenOTP] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [LoaderVisi, setLoaderVisi] = useState(false);
+  const [GAuthLoaderVisi, setGAuthLoaderVisi] = useState(false);
+  const [ShowMessage, setShowMessage] = useState('');
+  const [PassResetLoading, setPassResetLoading] = useState(false);
+
+
+
+  // ================= ReDirect =================
+  useEffect(() => {
+    if (LoggedInUserData) {
+      router.push(`/user/${LoggedInUserData.userName}`);
+      // router.push("/");
+    }
+  }, [LoggedInUserData])
+
+
+  // ==================== Login With Email ====================
+  const LogInHandel = async () => {
+    // =============== Simple Login ===============
+    if (GenOTP == "") {
+      if (email.trim() != "" && password.trim() != "") {
+        setLoaderVisi(true);
+        try {
+          const time = Get_Current_Time_String();
+          const data = await LogInFunction(email, password, time)
+          setShowMessage(data.message);
+          if (data.success) {
+            setLoggedInUserData(data.user);
+            toast.success(data.message);
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('authToken', data.token);
+            }
+            router.push(`/user/${data.user.userName}`);
+          }
+          else {
+            toast.error(data.message);
+          }
+        } catch (error) {
+          console.error(error)
+        }
+        setLoaderVisi(false);
+      }
+      else {
+        setShowMessage("Fill All the Fields");
+        toast.error("Fill All the Fields");
+      }
+    }
+    // =============== Pass Reset Login ===============
+    else {
+      if (InputOTP != "" && GenOTP != "" && email.trim() != "" && password.trim() != "") {
+        if (InputOTP == GenOTP) {
+          setLoaderVisi(true);
+          try {
+            const time = Get_Current_Time_String();
+            const data = await ResetPassword(email, password, time);
+            setShowMessage(data.message);
+            if (data.success) {
+              setLoggedInUserData(data.user);
+              toast.success(data.message);
+              if (typeof window !== 'undefined') {
+                localStorage.setItem('authToken', data.token);
+              }
+              router.push(`/user/${data.user.userName}`);
+            }
+            else {
+              toast.error(data.message);
+            }
+          } catch (error) {
+            console.error(error)
+          }
+          setLoaderVisi(false);
+        }
+        else {
+          setShowMessage("Wrong OTP");
+          toast.error("Wrong OTP");
+        }
+      }
+      else {
+        setShowMessage("Fill All the Fields");
+        toast.error("Fill All the Fields");
+      }
+    }
+  }
+
+
+  // ============================ Reset Password Handel ============================
+  const ResetPasswordHandel = async () => {
+    if (email.trim() != "") {
+      setPassResetLoading(true);
+      try {
+        const otp = generateRandomNumber(6);
+        const data = await OTPSendFunction(otp, email);
+        setGenOTP(otp);
+        setPassword("");
+        setShowMessage(data.message);
+        toast.success(`${data.message} Check Mail`);
+      } catch (error) {
+        setShowMessage(error.message);
+        toast.error(error.message);
+      }
+      setPassResetLoading(false);
+    }
+  }
+
+
+
+  // =============== Handel Google LogIn ===============
+  const HandelGoogleLogIn = async () => {
+    setGAuthLoaderVisi(true);
+    try {
+      const res = await signInWithGoogleFunc();
+      if (res.success) {
+        setLoggedInUserData(res.user);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('authToken', res.token);
+        }
+        router.push(`/user/${res.user.userName}`);
+      }
+    } catch (error) {
+      setShowMessage(`${error.error.message}`);
+      setGAuthLoaderVisi(false);
+    }
+  }
+
+
+
+  return (<>
+    <ToastContainer />
+
+    {GAuthLoaderVisi ? <UserProfileSkeleton /> :
+
+      <section className="relative z-10 overflow-hidden py-20">
+        <div className="container">
+          <div className="-mx-4 flex flex-wrap">
+            <div className="w-full px-4">
+              <div className="mx-auto max-w-[500px] rounded-md bg-gray-500 bg-opacity-20 py-10 px-6 dark:bg-gray-900 sm:p-[60px]">
+                <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
+                  Sign in to your account
+                </h3>
+                <p className="mb-11 text-center text-base font-medium text-black dark:text-white">
+                  Login to your account for a faster checkout.
+                </p>
+                {LoaderVisi ? <ColorRingLoader /> :
+                  <button onClick={HandelGoogleLogIn} className="mb-6 flex w-full items-center justify-center rounded-md bg-white p-3 text-base font-medium text-black dark:text-white dark:bg-[#242B51] dark:shadow-signUp">
+                    <span className="mr-3">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clipPath="url(#clip0_95:967)">
+                          <path
+                            d="M20.0001 10.2216C20.0122 9.53416 19.9397 8.84776 19.7844 8.17725H10.2042V11.8883H15.8277C15.7211 12.539 15.4814 13.1618 15.1229 13.7194C14.7644 14.2769 14.2946 14.7577 13.7416 15.1327L13.722 15.257L16.7512 17.5567L16.961 17.5772C18.8883 15.8328 19.9997 13.266 19.9997 10.2216"
+                            fill="#4285F4"
+                          />
+                          <path
+                            d="M10.2042 20.0001C12.9592 20.0001 15.2721 19.1111 16.9616 17.5778L13.7416 15.1332C12.88 15.7223 11.7235 16.1334 10.2042 16.1334C8.91385 16.126 7.65863 15.7206 6.61663 14.9747C5.57464 14.2287 4.79879 13.1802 4.39915 11.9778L4.27957 11.9878L1.12973 14.3766L1.08856 14.4888C1.93689 16.1457 3.23879 17.5387 4.84869 18.512C6.45859 19.4852 8.31301 20.0005 10.2046 20.0001"
+                            fill="#34A853"
+                          />
+                          <path
+                            d="M4.39911 11.9777C4.17592 11.3411 4.06075 10.673 4.05819 9.99996C4.0623 9.32799 4.17322 8.66075 4.38696 8.02225L4.38127 7.88968L1.19282 5.4624L1.08852 5.51101C0.372885 6.90343 0.00012207 8.4408 0.00012207 9.99987C0.00012207 11.5589 0.372885 13.0963 1.08852 14.4887L4.39911 11.9777Z"
+                            fill="#FBBC05"
+                          />
+                          <path
+                            d="M10.2042 3.86663C11.6663 3.84438 13.0804 4.37803 14.1498 5.35558L17.0296 2.59996C15.1826 0.901848 12.7366 -0.0298855 10.2042 -3.6784e-05C8.3126 -0.000477834 6.45819 0.514732 4.8483 1.48798C3.2384 2.46124 1.93649 3.85416 1.08813 5.51101L4.38775 8.02225C4.79132 6.82005 5.56974 5.77231 6.61327 5.02675C7.6568 4.28118 8.91279 3.87541 10.2042 3.86663Z"
+                            fill="#EB4335"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_95:967">
+                            <rect width="20" height="20" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    Sign in with Google
+                  </button>
+                }
+                <div className="mb-8 flex items-center justify-center">
+                  <span className="hidden h-[1px] w-full max-w-[70px] bg-gray-700 sm:block"></span>
+                  <p className="w-full px-5 text-center text-base font-medium text-black dark:text-white">
+                    Or, sign in with your email
+                  </p>
+                  <span className="hidden h-[1px] w-full max-w-[70px] bg-gray-700 sm:block"></span>
+                </div>
+                <div>
+                  <div className="mb-8">
+                    <label
+                      htmlFor="email"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                    >
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter your Email"
+                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-black dark:text-white placeholder-gray-500 shadow-one outline-none focus:border-blue-900 focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      value={email} onChange={(e) => {
+                        setEmail(e.target.value);
+                        setGenOTP("");
+                        setInputOTP("");
+                      }} required />
+                  </div>
+                  <div className="mb-8">
+                    <label
+                      htmlFor="password"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                    >
+                      {GenOTP != "" && "Enter New"} Password
+                    </label>
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      name="password"
+                      placeholder="Enter your Password"
+                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-black dark:text-white placeholder-gray-500 shadow-one outline-none focus:border-blue-900 focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)} />
+                  </div>
+                  {/* ================= Show Pass Btn ================= */}
+                  <div className="flex w-full justify-end items-end m-2">
+                    <input type="checkbox"
+                      id="showPassword"
+                      checked={showPassword}
+                      onChange={() => setShowPassword(prev => !prev)} className="w-4 h-4 text-gray-900 dark:text-gray-300 bg-gray-100 border-gray-300 rounded dark:bg-gray-700  cursor-pointer dark:border-gray-600" />
+                    <label htmlFor="showPassword" className=" cursor-pointer ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Show Password</label>
+                  </div>
+
+                  {/* <div className="mb-8 flex flex-col justify-between sm:flex-row sm:items-center">
+                    <div className="mb-4 sm:mb-0">
+                      <label
+                        htmlFor="checkboxLabel"
+                        className="flex cursor-pointer select-none items-center text-sm font-medium text-gray-700"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            id="checkboxLabel"
+                            className="sr-only"
+                          />
+                          <div className="box mr-4 flex h-5 w-5 items-center justify-center rounded border border-gray-700 border-opacity-20 dark:border-white dark:border-opacity-10">
+                            <span className="opacity-0">
+                              <svg
+                                width="11"
+                                height="8"
+                                viewBox="0 0 11 8"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
+                                  fill="#3056D3"
+                                  stroke="#3056D3"
+                                  strokeWidth="0.4"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                        Keep me signed in
+                      </label>
+                    </div>
+                    <div>
+                      <a
+                        href="#0"
+                        className="text-sm font-medium text-blue-900 hover:underline"
+                      >
+                        Forgot Password?
+                      </a>
+                    </div>
+                  </div> */}
+
+                  {/* ================= Enter OTP ================= */}
+                  {GenOTP != "" &&
+                    <div className="mt-4 pl-1 flex flex-col">
+                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">Enter OTP :</label>
+                      <input type="number" name="otp" className="w-full rounded-md border border-transparent py-3 px-6 text-base text-black dark:text-white placeholder-gray-500 shadow-one outline-none focus:border-blue-900 focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp" value={InputOTP} onChange={(e) => setInputOTP(e.target.value)}
+                        required placeholder="Enter OTP" />
+                    </div>
+                  }
+
+                  {/* ================= Reset Pass Btn ================= */}
+                  {email && <>
+                    {PassResetLoading ? <ColorRingLoader /> :
+                      <button className="m-2 font-bold underline  hover:text-green-700 dark:text-purple-400 text-purple-900"
+                        onClick={ResetPasswordHandel}>Reset Password</button>
+                    }
+                  </>}
+
+
+                  {/* ================= Show Message ================= */}
+                  <p className="my-2 text-red-800 dark:text-red-400 font-bold p-2">{ShowMessage}</p>
+
+                  <div className="mb-6">
+
+                    {/* ================= LogIn Btn ================= */}
+                    {(email.trim() != "" && password.trim() != "") && <>
+                      {LoaderVisi ? <ColorRingLoader /> :
+                        <button className="flex w-full items-center justify-center rounded-md bg-blue-900 py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp" onClick={LogInHandel}>
+                          Sign in
+                        </button>
+                      }
+                    </>}
+
+
+                  </div>
+                </div>
+                <p className="text-center text-base font-medium text-black dark:text-white">
+                  Don’t you have an account?
+                  <Link href="/signup" className="text-blue-900 dark:text-blue-500 hover:underline">
+                    Sign up
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute top-0 left-0 z-[-1]">
+          <svg
+            width="1440"
+            height="969"
+            viewBox="0 0 1440 969"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <mask
+              id="mask0_95:1005"
+              style={{ maskType: "alpha" }}
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="1440"
+              height="969"
+            >
+              <rect width="1440" height="969" fill="#090E34" />
+            </mask>
+            <g mask="url(#mask0_95:1005)">
+              <path
+                opacity="0.1"
+                d="M1086.96 297.978L632.959 554.978L935.625 535.926L1086.96 297.978Z"
+                fill="url(#paint0_linear_95:1005)"
+              />
+              <path
+                opacity="0.1"
+                d="M1324.5 755.5L1450 687V886.5L1324.5 967.5L-10 288L1324.5 755.5Z"
+                fill="url(#paint1_linear_95:1005)"
+              />
+            </g>
+            <defs>
+              <linearGradient
+                id="paint0_linear_95:1005"
+                x1="1178.4"
+                y1="151.853"
+                x2="780.959"
+                y2="453.581"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stopColor="#4A6CF7" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_95:1005"
+                x1="160.5"
+                y1="220"
+                x2="1099.45"
+                y2="1192.04"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stopColor="#4A6CF7" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </section>
+    }
+  </>);
+};
+
+export default SigninPage;
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+// =================================== Imports ===================================
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useAuth } from "../../../helper/Auth1";
+import { useRouter } from "next/navigation";
+import 'react-toastify/dist/ReactToastify.css';
+import { SignUpFunction } from "../../../helper/Auth/signup";
+import { ToastContainer, toast } from 'react-toastify';
+import { OTPSendFunction } from "../../../helper/Mail/OTPSend";
+import ColorRingLoader from "../../../components/Common/ColorRingLoader";
+import { generateRandomNumber } from "../../../helper/Others/GenerateRandomNumber";
+import { Get_Current_Time_String } from "../../../helper/Others/Get_Current_Time_String";
+import { signInWithGoogleFunc } from "../../../helper/Auth/SignInWithGoogleFunc";
+import UserProfileSkeleton from "../../../components/Skeleton/UserProfileSkeleton";
+
+
+// ======================= Sign Up Page =======================*
+const SignupPage = () => {
+
+  const { LoggedInUserData, setLoggedInUserData } = useAuth();
+  const router = useRouter();
+
+  const [UserName, setUserName] = useState("");
+  const [UserFullName, setUserFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [InputOTP, setInputOTP] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [GenOTP, setGenOTP] = useState("");
+
+  const [ShowMessage, setShowMessage] = useState('');
+  const [LoaderVisi, setLoaderVisi] = useState(false);
+  const [GAuthLoaderVisi, setGAuthLoaderVisi] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [OTPSendLoading, setOTPSendLoading] = useState(false);
+
+
+
+  // ================= ReDirect =================
+  useEffect(() => {
+    if (LoggedInUserData) {
+      router.push(`/user/${LoggedInUserData.userName}`);
+      // router.push("/");
+    }
+  }, [LoggedInUserData])
+
+
+
+  // ================= Sign Up Handel =================
+  const SignUpHandel = async () => {
+    if (UserFullName.trim() != "" && InputOTP != "" && GenOTP != "" && UserName.trim() != "" && email.trim() != "" && password.trim() != "") {
+      if (InputOTP != "" && GenOTP != "" && InputOTP == GenOTP) {
+        const time = Get_Current_Time_String();
+        setLoaderVisi(true);
+        try {
+          const data = await SignUpFunction(UserName, UserFullName, email, password, time)
+          setShowMessage(data.message);
+          if (data.success) {
+            toast.success(data.message);
+            setLoggedInUserData(data.user);
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('authToken', data.token);
+            }
+            router.push(`/user/${UserName}`);
+            // router.push("/");
+          }
+          else {
+            toast.error(data.message);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+        setLoaderVisi(false);
+      }
+      else {
+        setShowMessage("Wrong OTP");
+        toast.error("Wrong OTP");
+      }
+    }
+    else {
+      setShowMessage("Fill All the Fields");
+      toast.error("Fill All the Fields");
+    }
+  }
+
+
+  // ============================ Verify Email ============================
+  const verifyemail = async () => {
+    if (email.trim() != "") {
+      setOTPSendLoading(true);
+      try {
+        const otp = generateRandomNumber(6);
+        const data = await OTPSendFunction(otp, email);
+        setGenOTP(otp);
+        setShowMessage(data.message);
+        toast.success(`${data.message} Check Mail`);
+      } catch (error) {
+        setShowMessage(error.message);
+        toast.error(error.message);
+      }
+      setOTPSendLoading(false);
+    }
+  }
+
+
+
+  // =============== Handel Google LogIn ===============
+  const HandelGoogleLogIn = async () => {
+    setGAuthLoaderVisi(true);
+    try {
+      const res = await signInWithGoogleFunc();
+      if (res.success) {
+        setLoggedInUserData(res.user);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('authToken', res.token);
+        }
+        router.push(`/user/${res.user.userName}`);
+      }
+    } catch (error) {
+      setShowMessage(`${error.error.message}`);
+      setGAuthLoaderVisi(false);
+    }
+  }
+
+
+
+  return (<>
+    <ToastContainer />
+    {GAuthLoaderVisi ? <UserProfileSkeleton /> :
+
+      <section className="relative z-10 overflow-hidden py-20">
+        <div className="container">
+          <div className="-mx-4 flex flex-wrap">
+            <div className="w-full px-4">
+              <div className="mx-auto max-w-[500px] rounded-md bg-gray-500 bg-opacity-20 py-10 px-6 dark:bg-gray-900 sm:p-[60px]">
+                <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
+                  Create your account
+                </h3>
+                <p className="mb-11 text-center text-base font-medium text-black dark:text-white">
+                  It’s totally free and super easy
+                </p>
+                {LoaderVisi ? <ColorRingLoader /> :
+                  <button onClick={HandelGoogleLogIn} className="mb-6 flex w-full items-center justify-center rounded-md bg-white p-3 text-base font-medium text-black dark:text-white dark:bg-[#242B51] dark:shadow-signUp">
+                    <span className="mr-3">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clipPath="url(#clip0_95:967)">
+                          <path
+                            d="M20.0001 10.2216C20.0122 9.53416 19.9397 8.84776 19.7844 8.17725H10.2042V11.8883H15.8277C15.7211 12.539 15.4814 13.1618 15.1229 13.7194C14.7644 14.2769 14.2946 14.7577 13.7416 15.1327L13.722 15.257L16.7512 17.5567L16.961 17.5772C18.8883 15.8328 19.9997 13.266 19.9997 10.2216"
+                            fill="#4285F4"
+                          />
+                          <path
+                            d="M10.2042 20.0001C12.9592 20.0001 15.2721 19.1111 16.9616 17.5778L13.7416 15.1332C12.88 15.7223 11.7235 16.1334 10.2042 16.1334C8.91385 16.126 7.65863 15.7206 6.61663 14.9747C5.57464 14.2287 4.79879 13.1802 4.39915 11.9778L4.27957 11.9878L1.12973 14.3766L1.08856 14.4888C1.93689 16.1457 3.23879 17.5387 4.84869 18.512C6.45859 19.4852 8.31301 20.0005 10.2046 20.0001"
+                            fill="#34A853"
+                          />
+                          <path
+                            d="M4.39911 11.9777C4.17592 11.3411 4.06075 10.673 4.05819 9.99996C4.0623 9.32799 4.17322 8.66075 4.38696 8.02225L4.38127 7.88968L1.19282 5.4624L1.08852 5.51101C0.372885 6.90343 0.00012207 8.4408 0.00012207 9.99987C0.00012207 11.5589 0.372885 13.0963 1.08852 14.4887L4.39911 11.9777Z"
+                            fill="#FBBC05"
+                          />
+                          <path
+                            d="M10.2042 3.86663C11.6663 3.84438 13.0804 4.37803 14.1498 5.35558L17.0296 2.59996C15.1826 0.901848 12.7366 -0.0298855 10.2042 -3.6784e-05C8.3126 -0.000477834 6.45819 0.514732 4.8483 1.48798C3.2384 2.46124 1.93649 3.85416 1.08813 5.51101L4.38775 8.02225C4.79132 6.82005 5.56974 5.77231 6.61327 5.02675C7.6568 4.28118 8.91279 3.87541 10.2042 3.86663Z"
+                            fill="#EB4335"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_95:967">
+                            <rect width="20" height="20" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    Sign up with Google
+                  </button>
+                }
+                <div className="mb-8 flex items-center justify-center">
+                  <span className="hidden h-[1px] w-full max-w-[60px] bg-gray-700 sm:block"></span>
+                  <p className="w-full px-5 text-center text-base font-medium text-black dark:text-white">
+                    Or, register with your email
+                  </p>
+                  <span className="hidden h-[1px] w-full max-w-[60px] bg-gray-700 sm:block"></span>
+                </div>
+                <div>
+                  <div className="mb-8">
+                    <label
+                      htmlFor="Username"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                    >
+                      {" "}
+                      Username{" "}
+                    </label>
+                    <input
+                      type="text"
+                      name="Username"
+                      placeholder="Enter your Username"
+                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-black dark:text-white placeholder-gray-500 shadow-one outline-none focus:border-blue-900 focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      value={UserName} onChange={(e) => {
+                        const inputUsername = e.target.value.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+                        setUserName(inputUsername);
+                      }} required />
+                  </div>
+                  <div className="mb-8">
+                    <label
+                      htmlFor="name"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                    >
+                      {" "}
+                      Full Name{" "}
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Enter your full name"
+                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-black dark:text-white placeholder-gray-500 shadow-one outline-none focus:border-blue-900 focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      value={UserFullName} onChange={(e) => setUserFullName(e.target.value)} required />
+                  </div>
+                  <div className="mb-8">
+                    <label
+                      htmlFor="email"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                    >
+                      {" "}
+                      Work Email{" "}
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter your Email"
+                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-black dark:text-white placeholder-gray-500 shadow-one outline-none focus:border-blue-900 focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      value={email} readOnly={GenOTP != ""} onChange={(e) => {
+                        setEmail(e.target.value);
+                        setGenOTP("");
+                        setInputOTP("");
+                      }} required />
+                  </div>
+                  <div className="mb-8">
+                    <label
+                      htmlFor="password"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                    >
+                      {" "}
+                      Your Password{" "}
+                    </label>
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      name="password"
+                      placeholder="Enter your Password"
+                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-black dark:text-white placeholder-gray-500 shadow-one outline-none focus:border-blue-900 focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      value={password} onChange={(e) => setPassword(e.target.value)}
+                      required />
+                  </div>
+                  {/* ================= Show Pass Btn ================= */}
+                  <div className="flex w-full justify-end items-end m-2">
+                    <input type="checkbox"
+                      id="showPassword"
+                      checked={showPassword}
+                      onChange={() => setShowPassword(prev => !prev)} className="w-4 h-4 text-gray-900 dark:text-gray-300 bg-gray-100 border-gray-300 rounded dark:bg-gray-700  cursor-pointer dark:border-gray-600" />
+                    <label htmlFor="showPassword" className=" cursor-pointer ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Show Password</label>
+                  </div>
+
+                  {/* <div className="mb-8 flex">
+                    <label
+                      htmlFor="checkboxLabel"
+                      className="flex cursor-pointer select-none text-sm font-medium text-gray-700"
+                    >
+                      <div className="relative">
+                        <input
+                          type="checkbox"
+                          id="checkboxLabel"
+                          className="sr-only"
+                        />
+                        <div className="box mr-4 mt-1 flex h-5 w-5 items-center justify-center rounded border border-gray-700 border-opacity-20 dark:border-white dark:border-opacity-10">
+                          <span className="opacity-0">
+                            <svg
+                              width="11"
+                              height="8"
+                              viewBox="0 0 11 8"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
+                                fill="#3056D3"
+                                stroke="#3056D3"
+                                strokeWidth="0.4"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+                      <span>
+                        By creating account means you agree to the
+                        <a href="#0" className="text-blue-900 hover:underline">
+                          {" "}
+                          Terms and Conditions{" "}
+                        </a>
+                        , and our
+                        <a href="#0" className="text-blue-900 hover:underline">
+                          {" "}
+                          Privacy Policy{" "}
+                        </a>
+                      </span>
+                    </label>
+                  </div> */}
+
+                  {/* ================= Get OTP Btn ================= */}
+                  {email.trim() != "" && <>
+                    {OTPSendLoading ? <ColorRingLoader /> :
+                      <button className="text-white w-full bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 my-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" onClick={verifyemail}>
+                        Get OTP
+                      </button>
+                    }
+                  </>}
+
+
+                  {/* ================= Enter OTP ================= */}
+                  <div className="mt-4 pl-1 flex flex-col">
+                    <label className="mb-3 block text-sm font-medium text-black dark:text-white">Enter OTP</label>
+                    <input type="number" name="otp" className="w-full rounded-md border border-transparent py-3 px-6 text-base text-black dark:text-white placeholder-gray-500 shadow-one outline-none focus:border-blue-900 focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp" value={InputOTP} onChange={(e) => setInputOTP(e.target.value)}
+                      required placeholder="Enter OTP" />
+                  </div>
+
+
+                  {/* ================= Show Message ================= */}
+                  <p className="my-2 text-red-800 dark:text-red-400 font-bold p-2">{ShowMessage}</p>
+
+
+                  <div className="mb-6">
+                    {(UserFullName.trim() != "" && InputOTP != "" && GenOTP != "" && UserName.trim() != "" && email.trim() != "" && password.trim() != "") && <>
+                      {LoaderVisi ? <ColorRingLoader /> :
+                        <button className="flex w-full items-center justify-center rounded-md bg-blue-900 py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp" onClick={SignUpHandel}>
+                          Sign up
+                        </button>
+                      }
+                    </>}
+
+                  </div>
+                </div>
+                <p className="text-center text-base font-medium text-black dark:text-white">
+                  Already using LastMinuteEngineering?
+                  <Link href="/signin" className="text-blue-900 dark:text-blue-500 hover:underline">
+                    Sign in
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute left-0 top-0 z-[-1]">
+          <svg
+            width="1440"
+            height="969"
+            viewBox="0 0 1440 969"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <mask
+              id="mask0_95:1005"
+              style={{ maskType: "alpha" }}
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="1440"
+              height="969"
+            >
+              <rect width="1440" height="969" fill="#090E34" />
+            </mask>
+            <g mask="url(#mask0_95:1005)">
+              <path
+                opacity="0.1"
+                d="M1086.96 297.978L632.959 554.978L935.625 535.926L1086.96 297.978Z"
+                fill="url(#paint0_linear_95:1005)"
+              />
+              <path
+                opacity="0.1"
+                d="M1324.5 755.5L1450 687V886.5L1324.5 967.5L-10 288L1324.5 755.5Z"
+                fill="url(#paint1_linear_95:1005)"
+              />
+            </g>
+            <defs>
+              <linearGradient
+                id="paint0_linear_95:1005"
+                x1="1178.4"
+                y1="151.853"
+                x2="780.959"
+                y2="453.581"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stopColor="#4A6CF7" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_95:1005"
+                x1="160.5"
+                y1="220"
+                x2="1099.45"
+                y2="1192.04"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stopColor="#4A6CF7" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </section>
+
+    }
+  </>);
+};
+
+export default SignupPage;
+
+
+---
+
+File Path: .
+File Name: layout.js
+
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+
+export async function generateMetadata({ params }) {
+  const { username } = params;
+  try {
+    await connectDb();
+
+    const user = await User.findOne({ userName: username }).select("-password");
+    if (user) {
+      const data = user;
+
+      const UserPichttpsUrl = data.userPicUrl ?? '/user_default_pic.jpg';
+      return {
+        metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),
+        title: `${data.displayName} | LastMinuteEngineering`,
+        description: `@${data.userName}`,
+        generator: 'Next.js',
+        applicationName: 'LastMinuteEngineering',
+        referrer: 'origin-when-cross-origin',
+        keywords: ['engineering', 'soumojit', 'LastMinuteEngineering', 'shome', 'soumojitshome', 'Next.js', 'React'],
+
+        authors: [{ name: 'Soumojit Shome' }, { name: 'Soumojit Shome', url: 'https://soumojitshome.vercel.app' }],
+        creator: 'Soumojit Shome',
+        publisher: 'Soumojit Shome',
+
+        icons: {
+          icon: UserPichttpsUrl,
+          shortcut: UserPichttpsUrl,
+          apple: UserPichttpsUrl,
+          other: {
+            rel: 'apple-touch-icon-precomposed',
+            url: UserPichttpsUrl,
+          },
+        },
+
+        openGraph: {
+          title: `${data.displayName} | LastMinuteEngineering`,
+          description: `@${data.userName}`,
+          url: `${process.env.NEXT_PUBLIC_BASE_URL}/user/${username}`,
+          siteName: 'LastMinuteEngineering',
+          images: [
+            {
+              url: UserPichttpsUrl, // Must be an absolute URL
+              width: 800,
+              height: 600,
+            },
+            {
+              url: UserPichttpsUrl, // Must be an absolute URL
+              width: 1800,
+              height: 1600,
+              alt: 'LastMinuteEngineering',
+            },
+          ],
+          locale: 'en_US',
+          type: 'website',
+        },
+      }
+    }
+  } catch (error) {
+    console.log("OG Error", error);
+  }
+}
+
+const UserLayout = ({ children }) => {
+
+  return (
+    <div>
+      {children}
+    </div>
+
+  )
+}
+
+export default UserLayout;
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+// ==================== Imports ====================
+import React, { useEffect, useState } from 'react'
+import UserProfile from '../../../../components/userprofile/UserProfile';
+
+
+export default function page({ params }) {
+  const { username } = params;
+
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+  }, [])
+
+  
+  return (<>
+    <UserProfile UserName={username} />
+
+  </>)
+}
+
+
+
+
+---
+
+File Path: .
+File Name: page.js
+
+"use client"
+import React from 'react';
+import UsersSec from '../../../components/users/UsersSec';
+// ==================== Imports ====================
+
+/*============================================================
+Description :
+This is '/users' page. where all users are listed. 
+============================================================*/
+
+
+// ==================== Page ====================
+export default function page() {
+
+
+  return (
+    <UsersSec />
+  )
+}
+
+// ============================================================
+
+
+---
+
+File Path: .
+File Name: page.jsx
+
+'use client'
+
+import { ChatbotUI } from '../../../../../components/studyjam/Chatbot'
+import React from 'react'
+
+function Chatbot() {
+  return (
+    <div className="flex flex-col h-[93vh]  backdrop-blur-lg">
+      <div className="flex-grow overflow-hidden">
+        <ChatbotUI />
+      </div>
+    </div>
+  )
+}
+
+export default Chatbot
+
+---
+
+File Path: .
+File Name: layout.jsx
+
+import Background1 from "../../../../components/studyjam/Background";
+import Dashsidebar from "../../../../components/studyjam/dashsidebar";
+
+export default function DashboardLayout({ children }) {
+  return (<><Background1 />
+    <div className="flex h-screen">
+      
+      <Dashsidebar />
+      <main className="flex-1 overflow-auto p-6">
+        {children}
+      </main>
+    </div>
+    </>
+  );
+}
+
+---
+
+File Path: .
+File Name: page.jsx
+
+import dynamic from 'next/dynamic'
+
+const EditorComponent = dynamic(() => import('../../../../../components/studyjam/EditorComponent'), { ssr: false })
+
+export default function EditorPage() {
+  return (
+    <div className="container mx-auto p-4">
+     
+      <EditorComponent />
+    </div>
+  )
+}
+
+---
+
+File Path: .
+File Name: page.jsx
+
+'use client'
+
+import StudentDashboard from '../../../../components/studyjam/Dashboard'
+import { useInput } from '../../../../helper/Others/InputContext'
+import { useEffect, useState } from 'react'
+
+export default function Dashboard() {
+  const { inputValue } = useInput()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <h1>loading.....</h1> // or a loading indicator
+  }
+
+  return (
+    <div>
+    <StudentDashboard />
+    </div>
+  )
+}
+
+---
+
+File Path: .
+File Name: page.jsx
+
+
+import QuestionAnswerPage from '../../../../../components/studyjam/Question'
+import React from 'react'
+
+function question() {
+  return (
+    <div >
+      <QuestionAnswerPage />
+
+
+    </div>
+  )
+}
+
+export default question
+
+---
+
+File Path: .
+File Name: page.jsx
+
+import YouTubePage from '../../../../../components/studyjam/Youtube'
+import React from 'react'
+
+function youtube() {
+  return (
+    <div><YouTubePage /></div>
+  )
+}
+
+export default youtube
+
+---
+
+File Path: .
+File Name: page.jsx
+
+'use client'
+
+import { useRouter } from 'next/navigation'
+import Header from "../../../components/Header"
+import PlaceholdersAndVanishInput from "../../../components/ui/placeholders-and-vanish-input.jsx"
+import { useInput } from '../../../helper/Others/InputContext'
+
+export default function PlaceholdersAndVanishInputDemo() {
+  const { inputValue, setInputValue } = useInput()
+  const router = useRouter()
+  const placeholders = [
+    "What is Gravitation?",
+    "Linear Sorting?",
+    "Weathers of India?",
+    "How to Learn Next.js",
+    "How to make a time machine?",
+  ]
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value)
+    console.log(e.target.value)
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    console.log("submitted")
+    router.push('/study/dashboard/notes')
+  }
+
+  return (
+    <>
+      <Header />
+      <div className="h-[40rem] flex flex-col justify-center items-center px-4">
+        <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
+          Ask Anything! Learn Anything!
+        </h2>
+        <PlaceholdersAndVanishInput
+          placeholders={placeholders}
+          value={inputValue}
+          onChange={handleChange}
+          onSubmit={onSubmit}
+        />
+      </div>
+    </>
+  )
+}
+
+---
+
+File Path: .
+File Name: action.js
+
+'use server';
+
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { EditorDataSchema } from '../lib/schema';
+import { v4 as uuidv4 } from 'uuid';
+
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+
+export async function generateContent(topic) {
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' });
+
+  const prompt = `
+  As a professional search expert, your task is to generate comprehensive, well-structured, and engaging content on the topic "${topic}". Your response should strictly follow the given JSON format for Editor.js blocks while providing detailed, informative content in a clear, concise, and organized manner. Follow these guidelines to construct your response within the JSON structure:
+  
+  1. Begin with a brief introduction to the topic.
+  2. Provide detailed explanations of key concepts, using clear and concise language.
+  3. Use headers and subheaders to organize information logically.
+  4. Incorporate relevant examples, roadmaps, or code snippets where applicable.
+  5. Use ordered lists and checklists for easy readability when outlining steps or tasks.
+  6. Include motivational or insightful quotes relevant to the topic.
+  7. Add tables for comparisons, overviews, or summarizing information.
+  8. If relevant, embed code examples using the "code" block.
+  9. Include links to valuable resources in the "linkTool" block for further exploration.
+  10. Ensure the response strictly adheres to the provided JSON structure, with accurate, high-quality information.
+  
+  Use this format to construct the JSON object:
+  
+  {
+    "time": [current timestamp in milliseconds],
+    "blocks": [
+      {
+        "id": "9V7e_m3ao4",
+        "type": "title",
+        "data": {
+          "text": "[Insert section heading, e.g., 'Introduction to ${topic}']",
+          "color": "[any color from this array: ['Red', 'Blue', 'Pink','Orange','Yellow','Purple','Green']]",
+          "alignText": "Text-Align-Center",
+          "titleType": "H2"
+        }
+      },
+      {
+        "id": "unique-id-1",
+        "type": "header",
+        "data": {
+          "text": "[Insert section subheading]",
+          "level": 2
+        }
+      },
+      {
+        "id": "unique-id-2",
+        "type": "paragraph",
+        "data": {
+          "text": "[Insert an introduction explaining the topic, providing context, key concepts, and an overview]"
+        }
+      },
+      {
+        "id": "unique-id-3",
+        "type": "list",
+        "data": {
+          "style": "ordered",
+          "items": [
+            "[Insert detailed steps or a roadmap for mastering the topic, broken down into actionable items, e.g., 'Step 1: Read the basics of...', 'Step 2: Watch tutorials on...']"
+          ]
+        }
+      },
+      {
+        "id": "unique-id-4",
+        "type": "checklist",
+        "data": {
+          "items": [
+            {
+              "text": "[Insert a key task related to the topic that the user should complete]",
+              "checked": false
+            },
+            {
+              "text": "[Another task for the user]",
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "unique-id-5",
+        "type": "quote",
+        "data": {
+          "text": "[Include an insightful or motivational quote relevant to the topic]",
+          "caption": "[Source or author of the quote]",
+          "alignment": "left"
+        }
+      },
+      {
+        "id": "unique-id-6",
+        "type": "table",
+        "data": {
+          "withHeadings": true,
+          "content": [
+            ["Heading 1", "Heading 2"],
+            ["[Insert row data for an overview or comparison related to the topic]", "[Further row details]"],
+            ["[Additional row]", "[More data]"]
+          ]
+        }
+      },
+      {
+        "id": "unique-id-7",
+        "type": "code",
+        "data": {
+          "code": "[Insert code examples related to the topic if applicable]",
+          "language": "javascript"
+        }
+      },
+      {
+        "id": "unique-id-8",
+        "type": "linkTool",
+        "data": {
+          "link": "[Insert a URL to a highly relevant resource for further reading or exploration]",
+          "meta": {
+            "title": "[Resource title]",
+            "description": "[A brief description of the resource]",
+            "image": "[URL of the preview image, if available]"
+          }
+        }
+      }
+    ],
+    "version": "2.22.2"
+  }
+  
+  IMPORTANT: The response should ONLY return the JSON object in the exact format outlined above. Do not add any extra text, commentary, or preambles.`;
+  
+
+  try {
+    const result = await model.generateContent(prompt);
+    const text = result.response.text();
+    
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) {
+      throw new Error('No valid JSON found in the response');
+    }
+    
+    const jsonContent = jsonMatch[0];
+    const rawData = JSON.parse(jsonContent);
+
+    // Add unique IDs to the blocks
+    rawData.blocks = rawData.blocks.map(block => ({
+      ...block,
+      id: uuidv4()
+    }));
+
+    // Validate the data against our schema
+    const validationResult = EditorDataSchema.safeParse(rawData);
+
+    if (validationResult.success) {
+      return validationResult.data;
+    } else {
+      console.error('Validation error:', validationResult.error);
+      throw new Error('Generated content did not match expected schema');
+    }
+  } catch (error) {
+    console.error('Error generating or validating content:', error);
+    throw new Error('Failed to process the generated content');
+  }
+}
+
+---
+
+File Path: .
+File Name: route.js
+
+import { CoreMessage, streamText } from 'ai';
+import { createOpenAI } from '@ai-sdk/openai';
+
+const groq = createOpenAI({
+  baseURL: 'https://api.groq.com/openai/v1',
+  apiKey: process.env.GROQ_API_KEY,
+});
+
+export const runtime = 'edge';
+
+export async function POST(req) {
+  try {
+    const { messages } = await req.json();
+
+    const result = await streamText({
+      model: groq('llama-3.1-8b-instant'),
+      system: `You are an AI Tutor, a helpful mentor dedicated to guiding students. Your role is to:
+
+1. Always use concise and simple language. Keep answers brief and to the point.
+
+2. Ask short, direct questions to identify what the student needs. For example: "What part do you need help with?" or "Is there a specific step you're stuck on?"
+
+3. Provide guidance in clear, short steps. Avoid lengthy explanations—focus on the essentials.
+
+4. Adapt based on student responses. Offer more details only if requested.
+
+5. When both a question and answer are given, first ask: "Do you want help understanding the question or the answer?" Proceed based on the student's preference.
+
+6. Stay supportive and encourage learning in a concise manner.
+
+Your goal is to provide quick and effective help, making sure the student understands with minimal confusion.`,
+      messages,
+    });
+
+    return result.toDataStreamResponse();
+  } catch (error) {
+    console.error('Error in chat API:', error);
+    return new Response('Internal Server Error', { status: 500 });
+  }
+}
+
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+
+
+// ==================== Mail Sent API ====================*
+export async function POST(request) {
+    const body = await request.json();
+    if (process.env.FETCHAPIPASSCODE == body.PassCode) {
+        try {
+
+            // =======================================
+            // const PassCode = body.PassCode;
+            // console.log(body);
+            // console.log(request.method);
+            // console.log(request.headers);
+            // console.log(request.nextUrl.pathname);
+            // console.log(request.nextUrl);
+            // console.log(request.nextUrl.href);
+            // console.log(request.nextUrl.origin);
+            // =======================================
+
+
+            const nodemailer = require("nodemailer");
+            let testAccount = await nodemailer.createTestAccount();
+
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+
+                auth: {
+                    user: process.env.APIEMAILADDRESS,
+                    pass: process.env.APIEMAILPASS
+                }
+            });
+
+            let info = await transporter.sendMail({
+                from: `LastMinuteEngineering <${process.env.APIEMAILADDRESS}>`, // sender address
+                to: body.email, // list of receivers
+                subject: body.subject, // Subject line
+                // text: "Hello Raj", // plain text body
+                html: body.html, // html body
+                bcc: body.BccArr
+            });
+
+            // console.log("Message sent: %s", info.messageId);
+
+            // =======================================
+
+            return NextResponse.json({
+                body: info,
+                message: "Mail Send Successfully",
+                success: true
+            });
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ============================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from 'next/server';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const apiKey = process.env.GEMINI_API_KEY_q;
+const genAI = new GoogleGenerativeAI(apiKey);
+
+const model = genAI.getGenerativeModel({
+  model: "gemini-1.5-flash-002",
+});
+
+const systemInstruction = `You are an expert in generating high-quality, relevant, and important science and educational questions. Your task is to generate 5 questions based on a topic and question type provided by the user. Follow these rules strictly:
+
+Accept only relevant educational topics related to science, technology, engineering, mathematics, and other academic subjects. Do not generate any questions if the user provides a random or unrelated topic (such as jokes, adult content, or non-academic material). Politely respond with: "make only one question as the given structure with two option, are you mad. yes and no"
+
+Question Types:
+
+MCQ (Multiple Choice Questions): Provide 4 distinct options with one correct answer.
+SAQ (Short Answer Questions): Questions should have concise, factual answers.
+Numerical: Focus on questions that require calculations or numerical problem-solving.
+Long: Questions that require detailed explanations, critical thinking, or exploration of concepts.
+For MCQ questions:
+
+Provide 4 plausible options.
+Include the correct answer from the options.
+For Numerical questions:
+
+Ensure the calculations are directly related to the topic.
+Provide a correct numerical answer with units, where applicable.
+Ensure the questions are relevant, important, and aligned with the academic learning objectives for the provided topic.
+
+Return the questions in this structured format:
+
+{
+  "questions": [
+    {
+      "id": 1,
+      "type": "mcq/saq/numerical/long",
+      "question": "Your question text here",
+      "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+      "answer": "Correct answer (for MCQs), and answer for other type of question"
+    }
+  ]
+}
+Generate exactly 5 questions based on the user-provided topic and type.
+
+Ensure the questions are clear, accurate, and suitable for learning purposes.`;
+
+const generationConfig = {
+  temperature: 1,
+  topP: 0.95,
+  topK: 40,
+  maxOutputTokens: 8192,
+};
+
+export async function POST(req) {
+  try {
+    const { topic, type = 'mcq' } = await req.json();
+
+    if (!topic) {
+      return NextResponse.json({ error: 'Missing required parameter: topic' }, { status: 400 });
+    }
+
+    const chatSession = model.startChat({
+      generationConfig,
+      history: [
+        {
+          role: "user",
+          parts: [{ text: systemInstruction }],
+        },
+        {
+          role: "model",
+          parts: [{ text: "Understood. I will generate questions based on the provided instructions." }],
+        },
+      ],
+    });
+
+    const result = await chatSession.sendMessage(`Generate 5 ${type} questions on ${topic}`);
+    const responseText = result.response.text();
+    
+    // Extract JSON from the response
+    const jsonMatch = responseText.match(/```json\n([\s\S]*?)\n```/);
+    if (!jsonMatch) {
+      throw new Error('Failed to extract JSON from the response');
+    }
+    
+    const generatedQuestions = JSON.parse(jsonMatch[1]);
+
+    return NextResponse.json(generatedQuestions);
+  } catch (error) {
+    console.error('Error generating questions:', error);
+    return NextResponse.json({ error: 'Failed to generate questions' }, { status: 500 });
+  }
+}
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../helper/db";
+import jwt from "jsonwebtoken";
+import { Subscription } from "../../../models/subscription.models";
+
+connectDb();
+
+// ====================== Subscription ======================*
+export async function POST(request) {
+
+    // Get Request Body
+    const { email, time, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+            const FinduserByEmail = await Subscription.findOne({ email: email })
+            if (FinduserByEmail) {
+                // throw new Error("Already Subscribed");
+                return NextResponse.json({
+                    message: "Already Subscribed",
+                    success: true,
+                });
+            }
+
+            const newSubscription = new Subscription({
+                email: email,
+                time: time
+            });
+
+
+            const createdSubscription = await newSubscription.save();
+            const subscriptionId = createdSubscription._id;
+
+            // Create Web Token
+            const token = jwt.sign(
+                {
+                    subscriptionId: subscriptionId,
+                },
+                process.env.JWT_KEY
+            );
+
+
+            // Response
+            const response = NextResponse.json({
+                subscriptionId: subscriptionId,
+                message: "Subscription Created Successfully",
+                token: token,
+                success: true
+            })
+
+            // Set Token on Cookie
+            response.cookies.set("subscriptionToken", token, {
+                expiresIn: 100 * 365 * 24 * 60 * 60 * 1000, // 100 years in milliseconds
+                httpOnly: true,
+                secure: true,
+                path: '/',
+            });
+
+            return response;
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ========================================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { streamText } from 'ai';
+import { google } from "@ai-sdk/google";
+
+async function summarizeYouTubeVideo() {
+  try {
+    const result = await streamText({
+      model: google("gemini-1.5-pro-latest"),
+      prompt: `Summarize the following YouTube video:
+
+YouTube video link: "https://www.youtube.com/watch?v=kNkcFDs0frQ"
+
+Please provide a concise summary including:
+1. The main points discussed in the video.
+2. Key takeaways or insights.
+3. Any notable details or highlights.
+
+Your summary should be clear and focused, providing an overview of the video’s content in a structured format.`
+    });
+
+    // Use textStream as an async iterable
+    for await (const textPart of result.textStream) {
+      console.log(textPart);
+    }
+  } catch (error) {
+    console.error('Error summarizing video:', error);
+  }
+}
+
+summarizeYouTubeVideo();
+
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+import jwt from "jsonwebtoken";
+
+connectDb();
+
+// ================= Current User Route Get Data =================*
+export async function POST(request) {
+    const { lastOnlineTime, PassCode, token } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+            let authToken = request.cookies.get("authToken")?.value;
+            
+            if (!authToken && !token) {
+                throw new Error("Invalid Token !!");
+            }
+            if (!authToken) {
+                authToken = token;
+            }
+
+            const data = jwt.verify(authToken, process.env.JWT_KEY);
+            const user = await User.findById(data._id).select("-password");
+
+            if (user == null) {
+                throw new Error("user not found !!");
+            }
+
+            user.lastOnlineTime = lastOnlineTime;
+            const UpdateUser = await user.save();
+
+            const response = NextResponse.json({
+                user: UpdateUser,
+                message: "Current User Fetch Successfully",
+                success: true
+            });
+
+            response.cookies.set("authToken", authToken, {
+                expiresIn: "7d",
+                httpOnly: true,
+                secure: true,
+                path: '/',
+            });
+
+            return response;
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error.message}`,
+                success: false
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// =======================================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+import jwt from "jsonwebtoken";
+
+connectDb();
+
+// ===================== Update User =====================*
+export async function PUT(request) {
+    const { UserUpdateDataObj, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+
+        try {
+            const authToken = request.cookies.get("authToken")?.value;
+            const data = jwt.verify(authToken, process.env.JWT_KEY);
+            const user = await User.findById(data._id).select("-password");
+
+            if (user == null) {
+                throw new Error("user not found !!");
+            }
+
+            const FinduserByUserName = await User.findOne({ userName: UserUpdateDataObj.username }).select("-password");
+            if (FinduserByUserName && data._id != FinduserByUserName._id) {
+                throw new Error("Username Already Exist");
+            }
+
+            // Iterate over keys in UserUpdateDataObj and update user object
+            Object.keys(UserUpdateDataObj).forEach(key => {
+                user[key] = UserUpdateDataObj[key];
+            });
+
+
+            const UpdateUser = await user.save();
+
+            return NextResponse.json({
+                user: UpdateUser,
+                message: "User Edit Successfully",
+                ReqObj: UserUpdateDataObj,
+                success: true
+            })
+
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ====================================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+
+connectDb();
+
+// ======================= Get Random Users Id =======================*
+export async function POST(request) {
+    const { skipCount, count, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+            // Count the total number of users
+            const NetuserCount = await User.countDocuments({});
+
+            // Find the first 4 blog documents and project only the _id field
+            const users = await User.find({})
+                .skip(skipCount) // Skip the first 'skipCount' documents
+                .limit(count) // Limit to the next 4 documents
+                .select('_id'); // Select only the _id field
+
+            // Extract blog IDs from the fetched documents
+            const selectedUserIds = users.map(user => user._id);
+
+            const newskipCount = skipCount + selectedUserIds.length;
+
+            return NextResponse.json({
+                selectedUserIds: selectedUserIds,
+                newskipCount: newskipCount,
+                totalUserNo: NetuserCount,
+                message: "Random Users fetched successfully",
+                success: true
+            });
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+
+connectDb();
+
+
+// ====================== Get User By Id ======================*
+export async function POST(request) {
+    const { UserId, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+
+            const user = await User.findById(UserId);
+
+            if (user == null) {
+                throw new Error("user not found !!");
+            }
+
+
+            // =============== Response ===============
+            return NextResponse.json({
+                user: user,
+                message: "Get User By Id Successfully",
+                success: true
+            });
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// =======================================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+
+connectDb();
+
+// ====================== Get By UserName ======================*
+export async function POST(request) {
+
+    const { userName, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+            const user = await User.findOne({ userName: userName }).select("-password");
+
+            if (user == null || !user.isActive) {
+                throw new Error("user not found !!");
+            }
+
+            return NextResponse.json({
+                user: user,
+                message: "Get By UserName Successfully",
+                success: true
+            });
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ===================================================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+connectDb();
+
+// ======================= LogIn Route Post Data =======================*
+export async function POST(request) {
+    const { email, password, lastLoginTime, lastOnlineTime, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+
+            // 1.get user
+            const user = await User.findOne({
+                email: email,
+            });
+
+            if (user == null) {
+                throw new Error("user not found !!");
+            }
+
+            if (!user.password) {
+                throw new Error("Please reset password!!");
+            }
+            // 2.password check
+            const matched = bcrypt.compareSync(password, user.password);
+            if (!matched) {
+                throw new Error("Password not matched !!");
+            }
+
+
+            // 3. generate token
+            const token = jwt.sign(
+                {
+                    _id: user._id,
+                },
+                process.env.JWT_KEY
+            );
+
+            user.lastLoginTime = lastLoginTime;
+            user.lastOnlineTime = lastOnlineTime;
+            const UpdateUser = await user.save();
+
+
+            // 4.create nextresponse-- cookie
+            const response = NextResponse.json({
+                user: UpdateUser,
+                message: "Login success !!",
+                success: true,
+                token: token
+            });
+
+            response.cookies.set("authToken", token, {
+                expiresIn: "7d",
+                httpOnly: true,
+                secure: true,
+                path: '/',
+            });
+
+
+            return response;
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ========================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { connectDb } from "../../../../helper/db";
+import { NextResponse } from "next/server";
+
+connectDb();
+
+// ================== Log Out Route Post Data ==================*
+export async function POST(request) {
+    const response = NextResponse.json({
+        message: "Logged out !!",
+        success: true,
+    });
+
+    response.cookies.set("authToken", "", {
+        expires: new Date(0),
+    });
+
+    return response;
+}
+
+// ===========================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+connectDb();
+
+// ===================== Reset Password =====================*
+export async function POST(request) {
+    const { email, password, lastLoginTime, lastOnlineTime, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+            // 1.get user
+            const user = await User.findOne({
+                email: email,
+            });
+
+            if (user == null) {
+                throw new Error("user not found !!");
+            }
+
+            user.password = bcrypt.hashSync(
+                password,
+                parseInt(process.env.BCRYPT_SALT)
+            );
+
+            // 2. generate token
+            const token = jwt.sign(
+                {
+                    _id: user._id,
+                },
+                process.env.JWT_KEY,
+                // { expiresIn: "7d" } // It's a good practice to set an expiration time
+            );
+
+
+            user.lastLoginTime = lastLoginTime;
+            user.lastOnlineTime = lastOnlineTime;
+            const UpdateUser = await user.save();
+
+
+            // 3.create nextresponse-- cookie
+            const response = NextResponse.json({
+                user: UpdateUser,
+                message: "Reset Password Successfully !!",
+                success: true,
+                token: token
+            });
+
+            response.cookies.set("authToken", token, {
+                // maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
+                expiresIn: "7d",
+                httpOnly: true,
+                secure: true,
+                path: '/',
+            });
+
+            return response;
+
+        } catch (error) {
+            // console.log("error");
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ==============================================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+import jwt from "jsonwebtoken";
+
+
+connectDb();
+
+
+async function generateUniqueUsername(username) {
+    let uniqueUsername = username;
+    let count = 1;
+
+    // Check if the username already exists
+    while (await User.exists({ userName: uniqueUsername })) {
+        // Append count to the username and increment the count
+        uniqueUsername = `${username}${count}`;
+        count++;
+    }
+
+    return uniqueUsername;
+}
+
+
+// ===================== signIn With Google =====================*
+export async function POST(request) {
+
+    // Get Request Body
+    const { UserDataObj, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+
+            // Check Email Exist or not  
+            // Login
+            const FinduserByEmail = await User.findOne({ email: UserDataObj.email }).select("-password");
+            if (FinduserByEmail) {
+                // User Email Already Exist;
+                FinduserByEmail.lastLoginTime = UserDataObj.lastLoginTime;
+                FinduserByEmail.lastOnlineTime = UserDataObj.lastOnlineTime;
+                const UpdateUser = await FinduserByEmail.save();
+                const token = jwt.sign(
+                    {
+                        _id: FinduserByEmail._id,
+                    },
+                    process.env.JWT_KEY
+                );
+                const response = NextResponse.json({
+                    user: UpdateUser,
+                    message: "Login success !!",
+                    success: true,
+                    token: token
+                });
+                response.cookies.set("authToken", token, {
+                    expiresIn: "7d",
+                    httpOnly: true,
+                    secure: true,
+                    path: '/',
+                });
+                return response;
+            }
+
+
+            const uniqueUsername = await generateUniqueUsername(UserDataObj.userName);
+            // Create a new user with the unique username
+            const newUser = new User({
+                ...UserDataObj,
+                userName: uniqueUsername
+            });
+
+            // Save User
+            const createdUser = await newUser.save();
+
+            // Create Web Token
+            const token = jwt.sign(
+                {
+                    _id: createdUser._id,
+                },
+                process.env.JWT_KEY
+            );
+
+
+            // Response
+            const response = NextResponse.json({
+                user: createdUser,
+                message: "User Created Successfully",
+                ReqObj: UserDataObj,
+                token: token,
+                success: true
+            })
+
+            // Set Token on Cookie
+            response.cookies.set("authToken", token, {
+                expiresIn: "7d",
+                httpOnly: true,
+                secure: true,
+                path: '/',
+            });
+
+            return response;
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ========================================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../../helper/db";
+import { User } from "../../../../models/user.models";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+
+connectDb();
+
+
+// =================== Sign Up Route Post Data ====================*
+export async function POST(request) {
+
+    // Get Request Body
+    const { UserDataObj, PassCode } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+
+            // Check UserName Exist or not
+            const FinduserByUserName = await User.findOne({ userName: UserDataObj.userName }).select("-password");
+            if (FinduserByUserName) {
+                throw new Error("Username Already Exist");
+            }
+
+            // Check Email Exist or not
+            const FinduserByEmail = await User.findOne({ email: UserDataObj.email }).select("-password");
+            if (FinduserByEmail) {
+                throw new Error("User Email Already Exist");
+            }
+
+            // Create User
+            const user = new User(UserDataObj);
+            // Encode Password
+            user.password = bcrypt.hashSync(
+                user.password,
+                parseInt(process.env.BCRYPT_SALT)
+            );
+
+            // Save User
+            const createdUser = await user.save();
+            const createdUserId = createdUser._id;
+
+            // Create Web Token
+            const token = jwt.sign(
+                {
+                    _id: createdUserId,
+                },
+                process.env.JWT_KEY
+            );
+
+
+            // Response
+            const response = NextResponse.json({
+                user: createdUser,
+                userId: createdUserId,
+                message: "User Created Successfully",
+                ReqObj: UserDataObj,
+                token: token,
+                success: true
+            })
+
+            // Set Token on Cookie
+            response.cookies.set("authToken", token, {
+                expiresIn: "7d",
+                httpOnly: true,
+                secure: true,
+                path: '/',
+            });
+
+            return response;
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ========================================================================
+
+---
+
+File Path: .
+File Name: route.js
+
+// api/video/route.js
+import { NextResponse } from 'next/server';
+
+const API_KEY= '9fc07fb5bfa38e4ec9c2013f4102b097';
+const BASE_URL = 'http://api.serpstack.com/search';
+
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const query = searchParams.get('query');
+
+  if (!query) {
+    return NextResponse.json({ error: 'Query parameter is required' }, { status: 400 });
+  }
+
+  const url = `${BASE_URL}?access_key=${API_KEY}&query=${encodeURIComponent(query)}&type=videos`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data)
+    if (data.error) {
+      throw new Error(data.error.info);
+    }
+
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error('Error fetching video data:', error);
+    return NextResponse.json({ error: 'Failed to fetch video data' }, { status: 500 });
+  }
+}
+
+
+---
+
+File Path: .
+File Name: route.js
+
+import { NextResponse } from "next/server";
+import { connectDb } from "../../../helper/db";
+import { VisitorStats } from "../../../models/visitorstats.models";
+
+
+connectDb();
+
+
+// ======================= VisitorCount =======================*
+export async function POST(request) {
+
+    // Get Request Body
+    const { PassCode, isUniqueVisitorsIncrease, isTotalVisitorsIncrease } = await request.json();
+
+    if (process.env.FETCHAPIPASSCODE == PassCode) {
+        try {
+
+            let query = { timeFrame: "lifetime" };
+            let update = {};
+
+            if (isUniqueVisitorsIncrease || isTotalVisitorsIncrease) {
+                update.$inc = {};
+                if (isUniqueVisitorsIncrease) {
+                    update.$inc.uniqueVisitors = 1;
+                }
+                update.$inc.totalVisitors = 1;
+                update.$inc.pageViews = 1; // Increment page views when total visitors increase
+            }
+
+            // Perform atomic update using findOneAndUpdate
+            let updatedStats = await VisitorStats.findOneAndUpdate(query, update, {
+                new: true, // Return updated document
+                upsert: true, // If document does not exist, create it
+                setDefaultsOnInsert: true // Ensure defaults are applied when upserting
+            });
+
+            // Response
+            return NextResponse.json({
+                uniqueVisitors: updatedStats.uniqueVisitors,
+                totalVisitors: updatedStats.totalVisitors,
+                pageViews: updatedStats.pageViews,
+                success: true
+            })
+
+
+        } catch (error) {
+            return NextResponse.json({
+                message: `${error}`,
+                success: false,
+            });
+        }
+    }
+    else {
+        return NextResponse.json({
+            message: "XOX :) Data Nahi ayega | Dev Soumojit Shome",
+            success: false,
+        });
+    }
+}
+
+// ========================================================================
+
+---
+
+File Path: .
+File Name: error.js
+
+"use client"
+import React from 'react'
+import ErrorPage from './(Material)/error/page'
+
+export default function notfound() {
+  return (
+    <ErrorPage />
+  )
+}
+
+
+---
+
+File Path: .
+File Name: globals.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* globals.css */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 5s linear infinite;
+}
+
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+
+  }
+}
+
+
+@layer components {
+  input[type="checkbox"]:checked~label span svg {
+    @apply inline-flex;
+  }
+
+  .sticky .header-logo {
+    @apply py-5 lg:py-2;
+  }
+
+  .sticky .menu-scroll.active {
+    @apply opacity-70;
+  }
+
+  input#togglePlan:checked~.dot {
+    @apply translate-x-full;
+  }
+
+  input#checkboxLabel:checked~.box span {
+    @apply opacity-100;
+  }
+}
+
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+
+---
+
+File Path: .
+File Name: layout.js
+
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
+import { Providers } from "./providers";
+import NextTopLoader from 'nextjs-toploader';
+import ScrollToTop from "../components/ScrollToTop";
+import { AuthUserProvider } from "../helper/Auth1";
+import Background from "../components/Common/Background";
+import  {InputProvider}  from "../helper/Others/InputContext";
+// import { BackgroundBeamsDemo } from "@/components/Common/BackgroundBeamsDemo";
+
+const inter = Inter({ subsets: ["latin"] });
+
+// ============================= Meta Data =============================
+export const metadata = {
+  manifest: "/manifest.json",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),
+  title: 'Last Minute Engineering',
+  description: 'Join Last Minute Engineering today and take control of your engineering education, no matter how tight the schedule.',
+  generator: 'Next.js',
+  applicationName: 'Last Minute Engineering',
+  referrer: 'origin-when-cross-origin',
+  keywords: [
+    'Last Minute Engineering',
+    'lastminuteengineering',
+    'lme', 'engineers',
+    'Last', 'Minute', 'Engineering',
+    'tuitions', 'momente', 'lastminuteengineers',
+    'lastmomenttuitions', 'lastmomentengineering',
+    'last', 'minute', 'engineering',
+    'soumojit', 'shome', 'soumojitshome', 'Next.js'
+  ],
+
+  authors: [{ name: 'Soumojit Shome' }, { name: 'Soumojit Shome', url: 'https://soumojitshome.vercel.app' }],
+  creator: 'Soumojit Shome',
+  publisher: 'Soumojit Shome',
+
+  icons: {
+    icon: '/images/logo/mainlogo2.jpg',
+    shortcut: '/images/logo/mainlogo2.jpg',
+    apple: '/images/logo/mainlogo2.jpg',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/images/logo/mainlogo2.jpg',
+    },
+  },
+
+  openGraph: {
+    title: 'Last Minute Engineering',
+    description: 'Join Last Minute Engineering today and take control of your engineering education, no matter how tight the schedule.',
+    url: '/images/logo/mainlogo2.jpg',
+    siteName: 'Last Minute Engineering',
+    images: [
+      {
+        url: '/images/logo/mainlogo2.jpg', // Must be an absolute URL
+        width: 800,
+        height: 600,
+      },
+      {
+        url: '/images/logo/mainlogo2.jpg', // Must be an absolute URL
+        width: 1800,
+        height: 1600,
+        alt: 'Last Minute Engineering',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+}
+
+// ============================= Root Layout =============================
+export default function RootLayout({ children, }) {
+  return (
+    <InputProvider>
+    <html suppressHydrationWarning lang="en">
+      <head>
+        <title>Last Minute Engineering</title>
+
+        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9294955976732697"
+          crossorigin="anonymous"></script> */}
+      </head >
+
+      <body className="dark:bg-black">
+        <AuthUserProvider>
+          <Providers>
+           
+            <Background />
+
+            <NextTopLoader color="#FF0000"
+              initialPosition={0.08}
+              height={4}
+              crawl={true}
+              showSpinner={false} />
+          
+           {children}
+          
+            
+            
+            
+            <ScrollToTop />
+          </Providers>
+        </AuthUserProvider >
+        <Analytics />
+      </body>
+    </html>
+    </InputProvider>
+  );
+}
+
+
+
+
+
+---
+
+File Path: .
+File Name: not-found.js
+
+"use client"
+import React from 'react'
+import ErrorPage from './(Material)/error/page'
+
+export default function notfound() {
+  return (
+    <ErrorPage />
+  )
+}
+
+
+---
+
+File Path: .
+File Name: providers.js
+
+"use client";
+
+import { ThemeProvider } from "next-themes";
+
+export function Providers({ children }) {
+  return (
+    <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
+      {children}
+    </ThemeProvider>
+  );
+}
+
+
+---
+
+
+      I will provide you with the entire codebase of my website. Your job is to help me fix bugs, add new features, and make improvements as needed. Whenever a change is made in one file, you must ensure that any other related files are updated to maintain consistency and functionality.
+      
+      Key points:
+      
+      - Use only the code and features I provide. Do not create new files unless explicitly asked to do so.
+      - Always treat the first input document I provide as the main reference and context.
+      - Ensure that all modifications, additions, or fixes are integrated seamlessly across the entire codebase.
+      - If a feature is requested that requires updating multiple parts of the codebase, make sure that changes are made across all affected files.
+      
+      all code is given in the upper side.
+    

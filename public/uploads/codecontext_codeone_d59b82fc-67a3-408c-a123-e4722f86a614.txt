@@ -1,0 +1,438 @@
+File: card.models.js
+
+import mongoose, { Schema } from "mongoose";
+
+
+// ==================== Card Schema ====================
+const CardSchema = new Schema(
+    {
+        name: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            default: ""
+        },
+        keywords: {
+            type: [String],
+            default: []
+        },
+        links: [
+            {
+                type: String
+            }
+        ],
+        uploaderUserId: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        },
+        timestamp: {
+            type: Date,
+            default: Date.now
+        },
+        parentIds: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Card'
+            }
+        ],
+        childIds: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Card'
+            }
+        ]
+    },
+    {
+        timestamps: true,
+        indexes: [
+            { _id: 1 }
+        ]
+    }
+);
+
+// Indexing keywords field for efficient searching
+CardSchema.index({ keywords: 'text' });
+
+export const Card = mongoose.models.cards || mongoose.model("cards", CardSchema);
+
+
+---
+
+File: ebook.models.js
+
+import mongoose, { Schema } from "mongoose";
+
+
+// ==================== ebookSchema ====================
+const ebookSchema = new Schema(
+    {
+        title: {
+            type: String,
+            required: true,
+        },
+        description: {
+            type: String,
+            required: true,
+        },
+        keywords: {
+            type: [String],
+            default: []
+        },
+        coverImage: {
+            type: String,
+            required: true,
+        },
+        fileUrl: {
+            type: String,
+            required: true,
+        },
+        uploadDate: {
+            type: String,
+            required: true
+        },
+        downloadCount: {
+            type: Number,
+            default: 0,
+        },
+        likeCount: {
+            type: Number,
+            default: 0,
+        },
+        uploaderUserId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        }
+    },
+    {
+        timestamps: true,
+        indexes: [
+            { _id: 1 }
+        ]
+    }
+);
+
+export const Ebook = mongoose.models.ebooks || mongoose.model("ebooks", ebookSchema);
+
+
+---
+
+File: subscription.models.js
+
+import mongoose, { Schema } from "mongoose";
+
+
+// ==================== SubscriptionSchema ====================
+const SubscriptionSchema = new Schema(
+    {
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+            lowercase: true,
+            match: [/.+\@.+\..+/, 'Please fill a valid email address']
+        },
+        time: {
+            type: String,
+            required: true
+        },
+    }
+);
+
+
+export const Subscription = mongoose.models.subscriptions || mongoose.model("subscriptions", SubscriptionSchema);
+
+
+---
+
+File: study-material.ts
+
+export interface Subject {
+    name: string;
+    key: string;
+    type?: 'folder' | 'link';
+    id?: string;
+    link?: string;
+  }
+  
+  export interface Semester {
+    name: string;
+    key: string;
+    children: Subject[];
+  }
+  
+  export interface Department {
+    name: string;
+    key: string;
+    children: Semester[];
+  }
+  
+  export type MainDataSetType = Department[];
+
+---
+
+File: user.models.js
+
+import mongoose, { Schema } from "mongoose";
+
+
+const socialProfileSchema = new Schema(
+    {
+        platform: {
+            type: String,
+            required: true
+        },
+        link: {
+            type: String,
+            required: true
+        }
+    }
+)
+
+const notificationSchema = new Schema(
+    {
+        notificationText: {
+            type: String,
+            required: true
+        },
+        notificationImage: {
+            type: String,
+            required: true
+        },
+        notificationBlogId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Blog"
+        },
+        notificationUserId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        notificationTimeStamp: {
+            type: String,
+            required: true
+        },
+
+    },
+    {
+        timestamps: true
+    }
+)
+
+
+// ==================== User Schema ====================
+const UserSchema = new Schema(
+    {
+        userName: {
+            type: String,
+            required: true,
+            unique: true,
+            lowercase: true,
+            trim: true,
+            index: true
+        },
+        displayName: {
+            type: String,
+            required: true,
+            index: true
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            lowercase: true,
+            trim: true,
+            index: true
+        },
+        password: {
+            type: String,
+            // required: true
+        },
+        about: {
+            type: String,
+        },
+        birthday: {
+            type: String
+        },
+        socialProfiles: {
+            type: [socialProfileSchema]
+        },
+        education: {
+            type: String
+        },
+        interests: {
+            type: [String]
+        },
+        followers: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        following: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        viewCount: {
+            type: Number,
+            default: 0
+        },
+        settings: {
+            theme: {
+                type: String,
+                enum: ['light', 'dark', 'system', 'time varying'],
+                default: 'system'
+            },
+            language: {
+                type: String,
+                default: 'en'
+            },
+            emailNotifications: {
+                type: Boolean,
+                default: true
+            }
+        },
+        address: {
+            type: String
+        },
+        userPicUrl: {
+            type: String, // cloudinary url
+        },
+        coverPicUrl: {
+            type: String, // cloudinary url
+        },
+        regTime: {
+            type: String,
+            required: true
+        },
+        lastLoginTime: {
+            type: String,
+            required: true
+        },
+        lastOnlineTime: {
+            type: String,
+            required: true
+        },
+        savedBlogIds: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Blog'
+        }],
+        likedBlogIds: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Blog'
+        }],
+        isActive: {
+            type: Boolean,
+            default: true
+        },
+        isVerifiedBadge: {
+            type: Boolean,
+            default: false // Set default value to false
+        },
+        privacySettings: {
+            type: {
+                profileVisibility: {
+                    type: String,
+                    enum: ['public', 'private', 'friends'],
+                    default: 'public'
+                },
+                activityVisibility: {
+                    type: String,
+                    enum: ['public', 'private', 'friends'],
+                    default: 'public'
+                }
+            },
+            default: {
+                profileVisibility: 'public',
+                activityVisibility: 'public'
+            }
+        },
+        subscriptionStatus: {
+            type: String,
+            enum: ['free', 'basic', 'premium'],
+            default: 'free'
+        },
+        interactionMetrics: {
+            totalLikesGiven: {
+                type: Number,
+                default: 0
+            },
+            totalCommentsMade: {
+                type: Number,
+                default: 0
+            },
+            totalBlogsCreated: {
+                type: Number,
+                default: 0
+            }
+        },
+        notifications: {
+            type: [notificationSchema]
+        }
+    },
+    {
+        timestamps: true,
+        indexes: [
+            { _id: 1 }
+        ]
+    }
+);
+
+export const User = mongoose.models.users || mongoose.model("users", UserSchema);
+
+
+---
+
+File: visitorstats.models.js
+
+import mongoose, { Schema } from "mongoose";
+
+
+// ==================== VisitorStatsSchema ====================
+const VisitorStatsSchema = new Schema(
+    {
+        // date: {
+        //     type: Date,
+        //     required: true,
+        //     default: Date.now,
+        // },
+        timeFrame: {
+            type: String,
+            // enum: ['lastDay', 'lastWeek', 'lastMonth', 'lifetime'],
+            required: true,
+            default: "lifetime"
+        },
+        uniqueVisitors: {
+            type: Number,
+            default: 0,
+        },
+        totalVisitors: {
+            type: Number,
+            default: 0,
+        },
+        pageViews: {
+            type: Number,
+            default: 0,
+        },
+    }
+);
+
+
+export const VisitorStats = mongoose.models.visitorstats || mongoose.model("visitorstats", VisitorStatsSchema);
+
+
+---
+
+
+      I will provide you with the entire codebase of my website. Your job is to help me fix bugs, add new features, and make improvements as needed. Whenever a change is made in one file, you must ensure that any other related files are updated to maintain consistency and functionality.
+
+      Key points:
+
+      - Use only the code and features I provide. Do not create new files unless explicitly asked to do so.
+      - Always treat the first input document I provide as the main reference and context.
+      - Ensure that all modifications, additions, or fixes are integrated seamlessly across the entire codebase.
+      - If a feature is requested that requires updating multiple parts of the codebase, make sure that changes are made across all affected files.
+
+      All code is given in the upper side.
+    
