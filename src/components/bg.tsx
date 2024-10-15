@@ -1,99 +1,101 @@
-// app/components/MatrixBackground.tsx
-'use client';
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+"use client";
 
 import React, { useEffect, useRef, useState } from 'react';
 
-const characters = [
-  // Devanagari Characters
-  'अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ',
-  'क', 'ख', 'ग', 'घ', 'च', 'छ', 'ज', 'झ', 'ट', 'ठ', 'ड', 'ढ',
-  'त', 'थ', 'द', 'ध', 'न', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र',
-  'ल', 'व', 'श', 'ष', 'स', 'ह', 'क्ष', 'त्र', 'ज्ञ',
+interface Character {
+  char: string;
+  code: number;
+}
 
+const characters: Character[] = [
+  // Devanagari Characters
+  { char: 'अ', code: 2304 },
+  { char: 'आ', code: 2305 },
+  { char: 'इ', code: 2306 },
   // Code Symbols and Characters
-  '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '{',
-  '}', '[', ']', '|', '\\', ':', ';', '"', "'", '<', '>', ',', '.', '/',
-  
+  { char: '!', code: 33 },
+  { char: '@', code: 64 },
   // Latin Letters and Numbers
-  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-  'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-  'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+  { char: 'A', code: 65 },
+  { char: 'B', code: 66 },
+  // Add more characters as needed
 ];
 
-export default function MatrixBackground() {
+const MatrixBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [hasMounted, setHasMounted] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [isClient, setIsClient] = useState(false);
+  // Initialize the ref with an empty array
+  const dropsRef = useRef<number[]>([]);
 
-  // Ensure this component only renders after client-side mounting
   useEffect(() => {
-    setHasMounted(true);
+    setIsClient(true);
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+
+    return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
   useEffect(() => {
-    if (!hasMounted) return;
+    if (!isClient) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const context = canvas.getContext('2d');
-    if (!context) return;
-
-    // Set canvas dimensions
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
     const fontSize = 16;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops: number[] = Array(columns).fill(1);
+    const columns = Math.floor(dimensions.width / fontSize);
+    dropsRef.current = Array(columns).fill(1);
+
+    canvas.width = dimensions.width;
+    canvas.height = dimensions.height;
 
     const draw = () => {
-      // Black background with slight opacity to create trailing effect
-      context.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      context.fillRect(0, 0, canvas.width, canvas.height);
+      // Directly use dropsRef.current without optional chaining
+      const drops = dropsRef.current;
 
-      // Green text for the matrix effect
-      context.fillStyle = '#0F0';
-      context.font = `${fontSize}px monospace`;
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = characters[Math.floor(Math.random() * characters.length)];
-        context.fillText(text, i * fontSize, drops[i] * fontSize);
+      ctx.fillStyle = '#0F0';
+      ctx.font = `${fontSize}px monospace`;
 
-        // Reset drop to top randomly after it has crossed the screen
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
+      drops.forEach((drop, i) => {
+        const charIndex = Math.floor(Math.random() * characters.length);
+        const char = characters[charIndex]?.char ?? 'A';
+        ctx.fillText(char, i * fontSize, drop * fontSize);
+
+        if (drop * fontSize > canvas.height && Math.random() > 0.975) {
+          // Assign a new value without optional chaining
+          dropsRef.current[i] = 0;
+        } else {
+          dropsRef.current[i] = (dropsRef.current[i] ?? 0) + 1; // Use the value directly
         }
+      });
 
-        // Increment Y coordinate for the drop
-        drops[i]++;
-      }
+      requestAnimationFrame(draw);
     };
 
-    const interval = setInterval(draw, 33); // Approximately 30 FPS
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      // Recalculate columns based on new width
-      const newColumns = Math.floor(canvas.width / fontSize);
-      drops.length = 0;
-      for (let i = 0; i < newColumns; i++) {
-        drops.push(1);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
+    draw();
 
     return () => {
-      clearInterval(interval);
-      window.removeEventListener('resize', handleResize);
+      // Cleanup code if necessary
     };
-  }, [hasMounted]);
+  }, [dimensions, isClient]);
 
-  // Don't render anything on the server, render the canvas only after mount
-  if (!hasMounted) return null;
+  if (!isClient) {
+    return null; // Return null on server-side
+  }
 
   return (
     <canvas
@@ -102,4 +104,6 @@ export default function MatrixBackground() {
       aria-hidden="true"
     />
   );
-}
+};
+
+export default MatrixBackground;

@@ -1,16 +1,14 @@
-// app/api/combine/route.ts
-import { type NextRequest, NextResponse } from 'next/server';
+// src/app/api/combine/route.ts
+
+import { NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// Specify the runtime as 'nodejs'
+export const runtime = 'nodejs';
 
-export async function POST(req: NextRequest): Promise<NextResponse> {
+export async function POST(req: Request): Promise<NextResponse> {
   try {
     const formData = await req.formData();
     const files = formData.getAll('files') as File[];
@@ -19,11 +17,13 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     for (const file of files) {
       const content = await file.text();
-      const relativePath = file.webkitRelativePath || file.name; // Use webkitRelativePath for folder structure
+      // TypeScript doesn't recognize 'webkitRelativePath', so cast to 'any'
+
+      const relativePath = file.name;
       combinedContent.push(`File: ${relativePath}\n\n${content}\n\n`);
     }
 
-    // Append "hello world" once to the entire combined content
+    // Append additional instructions
     combinedContent.push(`
       I will provide you with the entire codebase of my website. Your job is to help me fix bugs, add new features, and make improvements as needed. Whenever a change is made in one file, you must ensure that any other related files are updated to maintain consistency and functionality.
 
@@ -52,6 +52,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ downloadUrl });
   } catch (error) {
     console.error('Error in POST /api/combine:', error);
-    return NextResponse.json({ error: 'An error occurred while processing the files' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'An error occurred while processing the files' },
+      { status: 500 }
+    );
   }
 }
