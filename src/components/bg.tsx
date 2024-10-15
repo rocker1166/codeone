@@ -13,14 +13,68 @@ const characters: Character[] = [
   { char: 'अ', code: 2304 },
   { char: 'आ', code: 2305 },
   { char: 'इ', code: 2306 },
+  { char: 'ई', code: 2307 },
+  { char: 'उ', code: 2308 },
+  { char: 'ऊ', code: 2309 },
+  { char: 'ऋ', code: 2310 },
+  { char: 'ए', code: 2311 },
+  { char: 'ऐ', code: 2312 },
+  { char: 'ओ', code: 2313 },
+  { char: 'औ', code: 2314 },
+  { char: 'अं', code: 2319 },
+  { char: 'अः', code: 2320 },
+  // More Devanagari characters can be added here
+
   // Code Symbols and Characters
   { char: '!', code: 33 },
   { char: '@', code: 64 },
-  // Latin Letters and Numbers
-  { char: 'A', code: 65 },
-  { char: 'B', code: 66 },
-  // Add more characters as needed
+  { char: '#', code: 35 },
+  { char: '$', code: 36 },
+  { char: '%', code: 37 },
+  { char: '^', code: 94 },
+  { char: '&', code: 38 },
+  { char: '*', code: 42 },
+  { char: '(', code: 40 },
+  { char: ')', code: 41 },
+  { char: '-', code: 45 },
+  { char: '=', code: 61 },
+  { char: '{', code: 123 },
+  { char: '}', code: 125 },
+  { char: '[', code: 91 },
+  { char: ']', code: 93 },
+  { char: '|', code: 124 },
+  { char: '\\', code: 92 },
+  { char: ':', code: 58 },
+  { char: ';', code: 59 },
+  { char: '"', code: 34 },
+  { char: "'", code: 39 },
+  { char: '<', code: 60 },
+  { char: '>', code: 62 },
+  { char: ',', code: 44 },
+  { char: '.', code: 46 },
+  { char: '/', code: 47 },
+
+  // Latin Letters
+  ...Array.from({ length: 26 }, (_, i) => ({
+    char: String.fromCharCode(65 + i), // A-Z
+    code: 65 + i,
+  })),
+  ...Array.from({ length: 26 }, (_, i) => ({
+    char: String.fromCharCode(97 + i), // a-z
+    code: 97 + i,
+  })),
+
+  // Digits
+  ...Array.from({ length: 10 }, (_, i) => ({
+    char: String(i), // 0-9
+    code: 48 + i,
+  })),
+
+ 
 ];
+
+
+
 
 const MatrixBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
